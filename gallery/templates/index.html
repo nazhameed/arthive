@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Welcome to Art-Hive!</h2>
+  <p>Your little one's personal art gallery. Please login or register to continue.</p>
+  <div class="d-flex gap-2 mb-4">
+    <button class="btn btn-primary" onclick="showForm('login')">Login</button>
+    <button class="btn btn-secondary" onclick="showForm('register')">Register</button>
+  </div>
+  <div id="login-form" style="display:none;">
+    <h3>Login</h3>
+    {% if login_error %}
+      <div class="alert alert-danger">{{ login_error }}</div>
+    {% endif %}
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="hidden" name="login" value="1">
+      {{ form.non_field_errors }}
+      {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% for error in field.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+  <div id="register-form" style="display:none;">
+    <h3>Register</h3>
+    {% if signup_error %}
+      <div class="alert alert-danger">{{ signup_error }}</div>
+    {% endif %}
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="hidden" name="register" value="1">
+      {% for field in signup_form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% for error in field.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-secondary">Register</button>
+    </form>
+  </div>
+</div>
+<script>
+function showForm(form) {
+  document.getElementById('login-form').style.display = form === 'login' ? 'block' : 'none';
+  document.getElementById('register-form').style.display = form === 'register' ? 'block' : 'none';
+}
+</script>
+{% endblock %}
