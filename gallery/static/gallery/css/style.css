@@ -1,23 +1,68 @@
-/* Art-Hive global styles */
+/* Art-Hive global styles - bee/hive theme */
 body {
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #fffbe6 0%, #fffde4 100%);
   font-family: 'Segoe UI', 'Arial', sans-serif;
 }
 .navbar {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  background-color: #ffd600 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.navbar-brand {
+  color: #222;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 .container {
   max-width: 700px;
+  background: #fffbe6;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(255,214,0,0.08);
+  padding: 2rem 2rem 1.5rem 2rem;
 }
 .btn-primary {
-  background-color: #6c63ff;
+  background-color: #ffd600;
+  color: #222;
   border: none;
 }
+.btn-primary:hover {
+  background-color: #ffea00;
+  color: #222;
+}
 .btn-secondary {
-  background-color: #ff6584;
+  background-color: #222;
+  color: #ffd600;
   border: none;
+}
+.btn-secondary:hover {
+  background-color: #444;
+  color: #ffd600;
+}
+h2, h3 {
+  color: #222;
+  text-shadow: 0 1px 0 #ffd600;
 }
 .alert-danger {
   font-size: 0.95rem;
+  background: #fff3cd;
+  color: #222;
+  border-color: #ffd600;
 }
-/* Add more custom styles as needed */
+/* Hive hexagon frame for future artwork */
+.hive-frame {
+  width: 120px;
+  height: 104px;
+  background: #ffd600;
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+  box-shadow: 0 2px 8px rgba(34,34,34,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+.hive-frame img {
+  width: 90px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* Add more bee/hive accents as needed */

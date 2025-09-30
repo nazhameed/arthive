@@ -27,13 +27,6 @@
               <button type="submit" class="nav-link btn btn-link" style="color:inherit; text-decoration:none;">Logout</button>
             </form>
           </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="showForm('register'); return false;">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
         {% endif %}
       </ul>
     </div>
