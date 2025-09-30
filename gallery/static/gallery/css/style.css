@@ -12,6 +12,12 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
 }
+/* Navbar buttons */
+.navbar-nav .btn {
+  color: #222 !important;
+  text-decoration: none !important;
+  display: inline-block;
+}
 .container {
   max-width: 700px;
   background: #fffbe6;
