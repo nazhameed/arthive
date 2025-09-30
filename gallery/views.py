@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, ChildForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from .models import Child
 
 def index(request):
     # Show landing page with login/register forms if not logged in
@@ -52,7 +53,9 @@ def index(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    # Get all children for the logged-in parent
+    children = Child.objects.filter(parent=request.user)
+    return render(request, 'dashboard.html', {'children': children})
 
 @login_required
 def add_child(request):
