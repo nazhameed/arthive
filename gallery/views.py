@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm
+from .forms import SignUpForm, ChildForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 def index(request):
     # Show landing page with login/register forms if not logged in
@@ -52,3 +53,17 @@ def index(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+@login_required
+def add_child(request):
+    if request.method == 'POST':
+        form = ChildForm(request.POST)
+        if form.is_valid():
+            child = form.save(commit=False)
+            child.parent = request.user  # Set parent to logged-in user
+            child.save()
+            messages.success(request, f"Child '{child.name}' added!")
+            return redirect('dashboard')
+    else:
+        form = ChildForm()
+    return render(request, 'add_child.html', {'form': form})
