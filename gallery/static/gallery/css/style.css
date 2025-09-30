@@ -1,0 +1,23 @@
+/* Art-Hive global styles */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+.container {
+  max-width: 700px;
+}
+.btn-primary {
+  background-color: #6c63ff;
+  border: none;
+}
+.btn-secondary {
+  background-color: #ff6584;
+  border: none;
+}
+.alert-danger {
+  font-size: 0.95rem;
+}
+/* Add more custom styles as needed */

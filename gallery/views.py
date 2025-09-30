@@ -12,9 +12,11 @@ def index(request):
     signup_form = SignUpForm()
     login_error = None
     signup_error = None
+    active_form = None
     # Handle registration POST
     if request.method == 'POST':
         if 'register' in request.POST:
+            active_form = 'register'
             signup_form = SignUpForm(request.POST)
             if signup_form.is_valid():
                 user = signup_form.save(commit=False)
@@ -25,6 +27,7 @@ def index(request):
             else:
                 signup_error = signup_form.errors
         elif 'login' in request.POST:
+            active_form = 'login'
             login_form = AuthenticationForm(request, data=request.POST)
             if login_form.is_valid():
                 user = authenticate(
@@ -42,7 +45,8 @@ def index(request):
         'form': login_form,
         'signup_form': signup_form,
         'login_error': login_error,
-        'signup_error': signup_error
+        'signup_error': signup_error,
+        'active_form': active_form
     })
 
 @login_required
