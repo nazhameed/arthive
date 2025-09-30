@@ -53,8 +53,12 @@ def index(request):
 
 @login_required
 def dashboard(request):
-    # Get all children for the logged-in parent
+    # Query all children for the logged-in parent
     children = Child.objects.filter(parent=request.user)
+    # Placeholder: each child has no artworks yet
+    # If you add an Artwork model later, you can query artworks per child here
+    for child in children:
+        child.artworks = []  # Placeholder for future artwork list
     return render(request, 'dashboard.html', {'children': children})
 
 @login_required

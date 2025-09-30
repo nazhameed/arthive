@@ -19,7 +19,7 @@
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link btn btn-warning text-dark fw-bold px-3 mx-1" href="{% url 'dashboard' %}">🐝 Hive Dashboard</a>
+            <a class="nav-link btn btn-warning text-dark fw-bold px-3 mx-1" href="{% url 'dashboard' %}">🐝 Dashboard</a>
           </li>
           <li class="nav-item">
             <form method="post" action="{% url 'logout' %}">
