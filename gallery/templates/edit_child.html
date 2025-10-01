@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-3" style="color:#ffd600;">Edit Child 🐝</h2>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="mb-3">
+              <label for="id_name" class="form-label fw-bold">Name</label>
+              {{ form.name }}
+            </div>
+            <div class="mb-3">
+              <label for="id_age" class="form-label fw-bold">Age</label>
+              {{ form.age }}
+            </div>
+            <button type="submit" class="btn btn-warning w-100 fw-bold">Save Changes</button>
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary w-100 mt-2">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -9,4 +9,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('add-child/', add_child, name='add_child'),
+    path('edit_child/<int:child_id>/', views.edit_child, name='edit_child'),
 ]
