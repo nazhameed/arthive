@@ -1,11 +1,13 @@
 /* Art-Hive global styles - bee/hive theme */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap');
 body {
   background: linear-gradient(135deg, #fffbe6 0%, #fffde4 100%);
-  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-family: 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
 }
 .dashboard-heading {
   font-size: 2rem;
   color: #222;
+  font-family: 'Fredoka One', 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
   font-weight: 600;
   text-shadow: 0 1px 0 #ffd600;
   margin-bottom: 1rem;
@@ -54,6 +56,7 @@ body {
 }
 h2, h3 {
   color: #222;
+  font-family: 'Fredoka One', 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
   text-shadow: 0 1px 0 #ffd600;
 }
 .alert-danger {
