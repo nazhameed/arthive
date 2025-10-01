@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, ChildForm
@@ -74,3 +74,16 @@ def add_child(request):
     else:
         form = ChildForm()
     return render(request, 'add_child.html', {'form': form})
+
+@login_required
+def edit_child(request, child_id):
+    child = get_object_or_404(Child, id=child_id, parent=request.user)
+    if request.method == 'POST':
+        form = ChildForm(request.POST, instance=child)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Child '{child.name}' updated!")
+            return redirect('dashboard')
+    else:
+        form = ChildForm(instance=child)
+    return render(request, 'edit_child.html', {'form': form, 'child': child})
