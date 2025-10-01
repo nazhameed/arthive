@@ -6,14 +6,13 @@
   {% if children %}
     <div class="row">
       {% for child in children %}
-        <div class="col-md-6 mb-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title">{{ child.name }}</h2>
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+          <div class="hive-frame d-flex flex-column justify-content-center align-items-center p-3">
+            <div class="w-100 text-center">
+              <h2 class="fw-bold mb-2" style="font-size:1.3rem;">🐝 {{ child.name }}</h2>
               {% if child.age %}
-                <p class="card-text">Age: {{ child.age }}</p>
+                <p class="mb-2">Age: {{ child.age }}</p>
               {% endif %}
-              <!-- Placeholder for artworks -->
               {% if child.artworks %}
                 <div class="mb-2">
                   {% for artwork in child.artworks %}
@@ -21,10 +20,9 @@
                   {% endfor %}
                 </div>
               {% else %}
-                <p class="text-muted">No artworks uploaded yet.</p>
+                <p class="text-muted mb-2">No artworks uploaded yet.</p>
               {% endif %}
-              <!-- Action buttons -->
-              <div class="d-flex gap-2 mt-3">
+              <div class="d-flex flex-wrap gap-2 mt-2 justify-content-center">
                 <a href="#" class="btn btn-primary btn-sm" aria-label="Add artwork for {{ child.name }}">Add Artwork</a>
                 <a href="#" class="btn btn-secondary btn-sm" aria-label="Edit {{ child.name }}'s profile">Edit Child</a>
                 <a href="#" class="btn btn-danger btn-sm" aria-label="Delete {{ child.name }}">Delete Child</a>

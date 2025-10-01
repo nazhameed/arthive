@@ -71,4 +71,37 @@ h2, h3 {
   object-fit: cover;
   border-radius: 8px;
 }
+/* Hive hexagon frame for child cards */
+.hive-frame {
+  width: 260px;
+  height: 225px;
+  background: #ffd600;
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+  box-shadow: 0 2px 8px rgba(34,34,34,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 0.5rem 0.5rem;
+}
+.hive-frame .card-body {
+  background: transparent;
+  box-shadow: none;
+  width: 90%;
+  padding: 0.5rem 0;
+}
+.hive-frame h2 {
+  color: #222;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.hive-frame p {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.hive-frame .btn {
+  font-size: 0.95rem;
+}
 /* Add more bee/hive accents as needed */
