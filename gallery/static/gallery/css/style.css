@@ -129,4 +129,18 @@ h2, h3 {
   color: #222;
   outline: 2px solid #ffb300;
 }
+/* Logo text effect */
+@keyframes logo-buzz {
+  0% { transform: rotate(-2deg) scale(1.02); }
+  100% { transform: rotate(2deg) scale(1.08); }
+}
+.logo-text {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  color: #121211;
+  text-shadow: 0 2px 6px #ffb300, 0 0 2px #fffbe6;
+  animation: logo-buzz 1.2s infinite alternate;
+  display: inline-block;
+  vertical-align: middle;
+}
 /* Add more bee/hive accents as needed */
