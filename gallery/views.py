@@ -87,3 +87,12 @@ def edit_child(request, child_id):
     else:
         form = ChildForm(instance=child)
     return render(request, 'edit_child.html', {'form': form, 'child': child})
+
+@login_required
+def delete_child(request, child_id):
+    child = get_object_or_404(Child, id=child_id, parent=request.user)
+    if request.method == 'POST':
+        child.delete()
+        messages.success(request, f"Child '{child.name}' deleted!")
+        return redirect('dashboard')
+    return render(request, 'delete_child.html', {'child': child})

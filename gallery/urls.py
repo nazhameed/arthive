@@ -10,4 +10,5 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('add-child/', add_child, name='add_child'),
     path('edit_child/<int:child_id>/', views.edit_child, name='edit_child'),
+    path('delete_child/<int:child_id>/', views.delete_child, name='delete_child'),
 ]
