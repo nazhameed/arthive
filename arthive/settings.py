@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gallery',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +125,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/dashboard/'  # Redirect after login
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dwk7vsn7d',
+    'API_KEY': '374371444555299',
+    'API_SECRET': 'fv-3rafZ3VS0fypvxQsJUzsk25Q',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
