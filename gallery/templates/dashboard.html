@@ -13,10 +13,10 @@
               {% if child.age %}
                 <p class="mb-2">Age: {{ child.age }}</p>
               {% endif %}
-              {% if child.artworks %}
+              {% if child.artworks.all|length > 0 %}
                 <div class="mb-2">
-                  {% for artwork in child.artworks %}
-                    <img src="#" alt="Artwork for {{ child.name }}" class="img-fluid mb-1" style="max-width:100px;">
+                  {% for artwork in child.artworks.all %}
+                    <img src="{{ artwork.image.url }}" alt="Artwork for {{ child.name }}" class="img-fluid mb-1" style="max-width:100px;">
                   {% endfor %}
                 </div>
               {% else %}
