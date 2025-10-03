@@ -33,7 +33,7 @@
 </div>
 
 <!-- Shared modal for viewing artwork -->
-<div class="modal fade" id="artworkModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="artworkModal" tabindex="-1" aria-labelledby="artworkModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content" style="background:#fffbe6;">
       <div class="modal-header">
@@ -46,16 +46,4 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('click', function (e) {
-    const link = e.target.closest('.open-artwork');
-    if (!link) return;
-    const img = document.getElementById('artworkModalImg');
-    const title = document.getElementById('artworkModalLabel');
-    img.src = link.getAttribute('data-img');
-    img.alt = link.getAttribute('data-title') || '';
-    title.textContent = link.getAttribute('data-title') || '';
-  });
-</script>
 {% endblock %}

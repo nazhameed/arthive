@@ -4,8 +4,8 @@
   <h2 class="mb-4">Welcome to Art-Hive!</h2>
   <p>Your little one's personal art gallery. Please login or register to continue.</p>
   <div id="auth-buttons" class="d-flex gap-2 mb-4"{% if active_form %} style="display:none;"{% endif %}>
-    <button class="btn btn-primary" onclick="showForm('login')">Login</button>
-    <button class="btn btn-secondary" onclick="showForm('register')">Register</button>
+    <button class="btn btn-primary" data-form="login">Login</button>
+    <button class="btn btn-secondary" data-form="register">Register</button>
   </div>
   <div id="login-form"{% if active_form == 'login' %} style="display:block;"{% else %} style="display:none;"{% endif %}>
     <h3>Login</h3>
@@ -53,11 +53,4 @@
     </form>
   </div>
 </div>
-<script>
-function showForm(form) {
-  document.getElementById('login-form').style.display = form === 'login' ? 'block' : 'none';
-  document.getElementById('register-form').style.display = form === 'register' ? 'block' : 'none';
-  document.getElementById('auth-buttons').style.display = (form === 'login' || form === 'register') ? 'none' : 'flex';
-}
-</script>
 {% endblock %}
