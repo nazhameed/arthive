@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, ChildForm, ArtworkForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from .models import Child
+from .models import Child, Artwork
 
 def index(request):
     # Show landing page with login/register forms if not logged in
@@ -113,3 +113,17 @@ def gallery(request, child_id):
     child = get_object_or_404(Child, id=child_id, parent=request.user)
     artworks = child.artworks.all()
     return render(request, 'gallery.html', {'child': child, 'artworks': artworks})
+
+@login_required
+def edit_artwork(request, child_id, artwork_id):
+    child = get_object_or_404(Child, id=child_id, parent=request.user)
+    artwork = get_object_or_404(Artwork, id=artwork_id, child=child)
+    if request.method == 'POST':
+        form = ArtworkForm(request.POST, request.FILES, instance=artwork)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Artwork '{artwork.title}' updated!")
+            return redirect('gallery', child_id=child.id)
+    else:
+        form = ArtworkForm(instance=artwork)
+    return render(request, 'edit_artwork.html', {'form': form, 'child': child, 'artwork': artwork})

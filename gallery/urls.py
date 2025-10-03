@@ -13,4 +13,5 @@ urlpatterns = [
     path('delete_child/<int:child_id>/', views.delete_child, name='delete_child'),
     path('add_artwork/<int:child_id>/', views.add_artwork, name='add_artwork'),
     path('gallery/<int:child_id>/', views.gallery, name='gallery'),
+    path('gallery/<int:child_id>/art/<int:artwork_id>/edit/', views.edit_artwork, name='edit_artwork'),
 ]
