@@ -96,12 +96,18 @@ h2, h3 {
   justify-content: center;
   margin: 1rem auto;
   padding: 0.5rem 0.5rem;
+  text-align: center;
 }
 .hive-frame .card-body {
   background: transparent;
   box-shadow: none;
   width: 90%;
   padding: 0.5rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .hive-frame h2 {
   color: #222;
@@ -136,11 +142,18 @@ h2, h3 {
 }
 .logo-text {
   font-family: 'Fredoka One', cursive;
-  font-size: 2rem;
-  color: #121211;
-  text-shadow: 0 2px 6px #ffb300, 0 0 2px #fffbe6;
+  font-size: 2.2rem;
+  color: #fffbe6;
+  text-shadow: 0 2px 8px #222, 0 0 6px #ffd600;
   animation: logo-buzz 1.2s infinite alternate;
   display: inline-block;
   vertical-align: middle;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.logo-bee {
+  font-size: 1.3rem;
+  vertical-align: middle;
+  margin: 0 0.1em;
 }
 /* Add more bee/hive accents as needed */

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-3" style="color:#ffd600;">Add Artwork for {{ child.name }} 🖼️</h2>
+          <form method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="mb-3">
+              <label for="id_image" class="form-label fw-bold">Image</label>
+              {{ form.image }}
+            </div>
+            <div class="mb-3">
+              <label for="id_title" class="form-label fw-bold">Title</label>
+              {{ form.title }}
+            </div>
+            <div class="mb-3">
+              <label for="id_description" class="form-label fw-bold">Description</label>
+              {{ form.description }}
+            </div>
+            <button type="submit" class="btn btn-success w-100 fw-bold">Upload Artwork</button>
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary w-100 mt-2">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

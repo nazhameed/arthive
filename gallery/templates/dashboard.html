@@ -7,25 +7,19 @@
     <div class="row">
       {% for child in children %}
         <div class="col-md-6 mb-4 d-flex justify-content-center">
-          <div class="hive-frame d-flex flex-column justify-content-center align-items-center p-3">
-            <div class="w-100 text-center">
-              <h2 class="fw-bold mb-2" style="font-size:1.3rem;">🐝 {{ child.name }}</h2>
+          <div class="hive-frame">
+            <div class="card-body text-center">
+              <h2 class="fw-bold mb-2">🐝 {{ child.name }}</h2>
               {% if child.age %}
                 <p class="mb-2">Age: {{ child.age }}</p>
               {% endif %}
-              {% if child.artworks.all|length > 0 %}
-                <div class="mb-2">
-                  {% for artwork in child.artworks.all %}
-                    <img src="{{ artwork.image.url }}" alt="Artwork for {{ child.name }}" class="img-fluid mb-1" style="max-width:100px;">
-                  {% endfor %}
-                </div>
-              {% else %}
+              {% if child.artworks.all|length == 0 %}
                 <p class="text-muted mb-2">No artworks uploaded yet.</p>
               {% endif %}
               <div class="d-flex flex-wrap gap-2 mt-2 justify-content-center">
-                <a href="/add_artwork/{{ child.id }}/" class="btn btn-sm btn-success" aria-label="Add artwork for {{ child.name }}">Add Artwork</a>
-                <a href="/edit_child/{{ child.id }}/" class="btn btn-sm btn-primary" aria-label="Edit or delete {{ child.name }}'s profile">Edit Child</a>
-                <a href="/gallery/{{ child.id }}/" class="btn btn-sm btn-warning" aria-label="View gallery for {{ child.name }}">View Gallery</a>
+                <a href="{% url 'add_artwork' child.id %}" class="btn btn-sm btn-success" aria-label="Add artwork for {{ child.name }}">Add Artwork</a>
+                <a href="{% url 'edit_child' child.id %}" class="btn btn-sm btn-primary" aria-label="Edit or delete {{ child.name }}'s profile">Edit Child</a>
+                <a href="{% url 'gallery' child.id %}" class="btn btn-sm btn-warning" aria-label="View gallery for {{ child.name }}">View Gallery</a>
               </div>
             </div>
           </div>

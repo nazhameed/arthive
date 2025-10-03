@@ -21,12 +21,8 @@ class ChildForm(forms.ModelForm):
 class ArtworkForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        fields = ['image', 'title', 'description', 'created_at']
+        fields = ['image', 'title', 'description']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description', 'rows': 3}),
-            'created_at': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
         }
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['created_at'].required = False

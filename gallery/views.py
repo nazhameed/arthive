@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, ChildForm
+from .forms import SignUpForm, ChildForm, ArtworkForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import Child
@@ -55,10 +55,6 @@ def index(request):
 def dashboard(request):
     # Query all children for the logged-in parent
     children = Child.objects.filter(parent=request.user)
-    # Placeholder: each child has no artworks yet
-    # If you add an Artwork model later, you can query artworks per child here
-    for child in children:
-        child.artworks = []  # Placeholder for future artwork list
     return render(request, 'dashboard.html', {'children': children})
 
 @login_required
@@ -96,3 +92,24 @@ def delete_child(request, child_id):
         messages.success(request, f"Child '{child.name}' deleted!")
         return redirect('dashboard')
     return render(request, 'delete_child.html', {'child': child})
+
+@login_required
+def add_artwork(request, child_id):
+    child = get_object_or_404(Child, id=child_id, parent=request.user)
+    if request.method == 'POST':
+        form = ArtworkForm(request.POST, request.FILES)
+        if form.is_valid():
+            artwork = form.save(commit=False)
+            artwork.child = child
+            artwork.save()
+            messages.success(request, f"Artwork '{artwork.title}' added for {child.name}!")
+            return redirect('dashboard')
+    else:
+        form = ArtworkForm()
+    return render(request, 'add_artwork.html', {'form': form, 'child': child})
+
+@login_required
+def gallery(request, child_id):
+    child = get_object_or_404(Child, id=child_id, parent=request.user)
+    artworks = child.artworks.all()
+    return render(request, 'gallery.html', {'child': child, 'artworks': artworks})

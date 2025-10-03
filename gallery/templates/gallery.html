@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="dashboard-heading text-center mb-4">{{ child.name }}'s Gallery 🖼️</h2>
+  {% if artworks %}
+    <div class="row justify-content-center">
+      {% for artwork in artworks %}
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <div class="card shadow-sm" style="background: #fffbe6; border-radius: 1.5rem; min-height: 340px;">
+            <a href="#" class="open-artwork" data-bs-toggle="modal" data-bs-target="#artworkModal"
+               data-img="{{ artwork.image.url }}" data-title="{{ artwork.title }}">
+              <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="img-fluid rounded"
+                   style="max-height: 180px; object-fit: cover; margin: 1rem auto; display: block;">
+            </a>
+            <div class="card-body p-2 text-center">
+              <h5 class="card-title mb-1" style="color:#ffd600;">{{ artwork.title }}</h5>
+              {% if artwork.description %}
+                <p class="card-text small text-muted">{{ artwork.description }}</p>
+              {% endif %}
+              <p class="card-text small text-secondary">{{ artwork.created_at|date:'d M Y, H:i' }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-muted text-center">No artworks uploaded yet.</p>
+  {% endif %}
+  <div class="text-center mt-3">
+    <a href="{% url 'dashboard' %}" class="btn btn-warning fw-bold">Back to Dashboard</a>
+    <a href="{% url 'add_artwork' child.id %}" class="btn btn-success fw-bold ms-2">+ Add Artwork</a>
+  </div>
+</div>
+
+<!-- Shared modal for viewing artwork -->
+<div class="modal fade" id="artworkModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="background:#fffbe6;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="artworkModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="" alt="" class="img-fluid rounded" id="artworkModalImg">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('.open-artwork');
+    if (!link) return;
+    const img = document.getElementById('artworkModalImg');
+    const title = document.getElementById('artworkModalLabel');
+    img.src = link.getAttribute('data-img');
+    img.alt = link.getAttribute('data-title') || '';
+    title.textContent = link.getAttribute('data-title') || '';
+  });
+</script>
+{% endblock %}
