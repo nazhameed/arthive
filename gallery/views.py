@@ -127,3 +127,21 @@ def edit_artwork(request, child_id, artwork_id):
     else:
         form = ArtworkForm(instance=artwork)
     return render(request, 'edit_artwork.html', {'form': form, 'child': child, 'artwork': artwork})
+
+@login_required
+def delete_artwork(request, child_id, artwork_id):
+    """Confirm and delete an artwork belonging to the current user's child."""
+    child = get_object_or_404(Child, id=child_id, parent=request.user)
+    artwork = get_object_or_404(Artwork, id=artwork_id, child=child)
+    if request.method == 'POST':
+        title = artwork.title
+        # Try to delete underlying asset (e.g., Cloudinary) without saving model
+        try:
+            if getattr(artwork, 'image', None):
+                artwork.image.delete(save=False)
+        except Exception:
+            pass
+        artwork.delete()
+        messages.success(request, f"Artwork '{title}' deleted!")
+        return redirect('gallery', child_id=child.id)
+    return render(request, 'delete_artwork.html', {'child': child, 'artwork': artwork})

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm" style="background:#fffbe6;border-radius:1rem;">
+        <div class="card-body text-center p-4">
+          <h3 class="mb-3" style="color:#ffa000;">Delete Child Profile</h3>
+          <p class="mb-4">Are you sure you want to delete <strong>{{ child.name }}</strong> and all their artworks? This cannot be undone.</p>
+          <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger fw-bold">Delete</button>
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary fw-bold ms-2">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
