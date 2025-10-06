@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function showForm(form) {
     if (!loginForm || !registerForm || !authButtons) return;
     const isLogin = form === 'login';
-    loginForm.style.display = isLogin ? 'block' : 'none';
-    registerForm.style.display = isLogin ? 'none' : 'block';
-    authButtons.style.display = 'none';
+    loginForm.classList.toggle('d-none', !isLogin);
+    registerForm.classList.toggle('d-none', isLogin);
+    authButtons.classList.add('d-none');
     // Focus the first input in the shown form
     const input = (isLogin ? loginForm : registerForm).querySelector('input, select, textarea, button');
     if (input) input.focus();

@@ -3,11 +3,11 @@
 <div class="container mt-5">
   <h2 class="mb-4">Welcome to Art-Hive!</h2>
   <p>Your little one's personal art gallery. Please login or register to continue.</p>
-  <div id="auth-buttons" class="d-flex gap-2 mb-4"{% if active_form %} style="display:none;"{% endif %}>
+  <div id="auth-buttons" class="d-flex gap-2 mb-4">
     <button class="btn btn-primary" data-form="login">Login</button>
     <button class="btn btn-secondary" data-form="register">Register</button>
   </div>
-  <div id="login-form"{% if active_form == 'login' %} style="display:block;"{% else %} style="display:none;"{% endif %}>
+  <div id="login-form" class="d-none">
     <h3>Login</h3>
     {% if login_error %}
       <div class="alert alert-danger">{{ login_error }}</div>
@@ -30,7 +30,7 @@
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </div>
-  <div id="register-form"{% if active_form == 'register' %} style="display:block;"{% else %} style="display:none;"{% endif %}>
+  <div id="register-form" class="d-none">
     <h3>Register</h3>
     {% if signup_error %}
       <div class="alert alert-danger">{{ signup_error }}</div>

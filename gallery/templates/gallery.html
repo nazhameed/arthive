@@ -1,23 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container py-4">
-  <h2 class="dashboard-heading text-center mb-4">{{ child.name }}'s Gallery 🖼️</h2>
+  <div class="text-center mb-4">
+    <!-- Removed back icon link to keep navigation only in navbar -->
+    <h2 class="dashboard-heading d-inline-block mb-0">{{ child.name }}'s Gallery 🖼️</h2>
+  </div>
+
   {% if artworks %}
-    <div class="row justify-content-center">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
       {% for artwork in artworks %}
-        <div class="col-6 col-md-4 col-lg-3 mb-4">
-          <div class="card shadow-sm" style="background: #fffbe6; border-radius: 1.5rem; min-height: 340px;">
-            <a href="#" class="open-artwork" data-bs-toggle="modal" data-bs-target="#artworkModal"
-               data-img="{{ artwork.image.url }}" data-title="{{ artwork.title }}">
-              <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="img-fluid rounded"
-                   style="max-height: 180px; object-fit: cover; margin: 1rem auto; display: block;">
-            </a>
+        <div class="col">
+          <div class="card gallery-card">
+            <div class="gallery-media picture-frame">
+              <a href="#" class="open-artwork-image" data-bs-toggle="modal" data-bs-target="#artworkImageModal"
+                 data-img="{{ artwork.image.url }}"
+                 data-title="{{ artwork.title }}"
+                 aria-label="View {{ artwork.title }}">
+                <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="gallery-img" loading="lazy">
+              </a>
+              <!-- Edit icon overlay on image -->
+              <a href="#"
+                 class="edit-icon-overlay open-artwork-actions"
+                 data-bs-toggle="modal"
+                 data-bs-target="#artworkActionsModal"
+                 data-title="{{ artwork.title }}"
+                 data-edit="{% url 'edit_artwork' child.id artwork.id %}"
+                 data-delete="{% url 'delete_artwork' child.id artwork.id %}"
+                 title="Edit or delete {{ artwork.title }}"
+                 aria-label="Edit or delete {{ artwork.title }}">
+                ✏️
+              </a>
+            </div>
             <div class="card-body p-2 text-center">
-              <h5 class="card-title mb-1" style="color:#ffd600;">{{ artwork.title }}</h5>
+              <h6 class="mb-1 gallery-title">{{ artwork.title }}</h6>
               {% if artwork.description %}
-                <p class="card-text small text-muted">{{ artwork.description }}</p>
+                <p class="gallery-desc small mb-1 text-muted">{{ artwork.description }}</p>
               {% endif %}
-              <p class="card-text small text-secondary">{{ artwork.created_at|date:'d M Y, H:i' }}</p>
+              <p class="gallery-date mb-0 text-secondary">{{ artwork.created_at|date:'d M Y' }}</p>
             </div>
           </div>
         </div>
@@ -26,22 +45,31 @@
   {% else %}
     <p class="text-muted text-center">No artworks uploaded yet.</p>
   {% endif %}
-  <div class="text-center mt-3">
-    <a href="{% url 'dashboard' %}" class="btn btn-warning fw-bold">Back to Dashboard</a>
-    <a href="{% url 'add_artwork' child.id %}" class="btn btn-success fw-bold ms-2">+ Add Artwork</a>
+</div>
+
+<!-- Image-only modal -->
+<div class="modal fade" id="artworkImageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content modal-honey">
+      <div class="modal-body text-center p-0">
+        <button type="button" class="btn-close position-absolute end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <img src="" alt="" class="img-fluid rounded" id="artworkImageModalImg">
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Shared modal for viewing artwork -->
-<div class="modal fade" id="artworkModal" tabindex="-1" aria-labelledby="artworkModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content" style="background:#fffbe6;">
+<!-- Actions modal (Edit/Delete) -->
+<div class="modal fade" id="artworkActionsModal" tabindex="-1" aria-labelledby="artworkActionsTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-honey">
       <div class="modal-header">
-        <h5 class="modal-title" id="artworkModalLabel"></h5>
+        <h5 class="modal-title" id="artworkActionsTitle"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-center">
-        <img src="" alt="" class="img-fluid rounded" id="artworkModalImg">
+      <div class="modal-footer justify-content-end">
+        <a id="artworkEditLink" href="#" class="btn btn-primary">Edit</a>
+        <a id="artworkDeleteLink" href="#" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>

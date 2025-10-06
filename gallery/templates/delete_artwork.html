@@ -3,12 +3,12 @@
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm" style="background:#fffbe6;border-radius:1rem;">
+      <div class="card shadow-sm card-honey">
         <div class="card-body text-center p-4">
-          <h3 class="mb-3" style="color:#ffa000;">Delete Artwork</h3>
+          <h3 class="mb-3 text-honey-warn">Delete Artwork</h3>
           <p class="mb-4">Are you sure you want to delete <strong>{{ artwork.title }}</strong> from {{ child.name }}'s gallery?</p>
           <div class="mb-3">
-            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="img-fluid rounded" style="max-height:220px;object-fit:cover;">
+            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="img-fluid rounded img-preview">
           </div>
           <form method="post">
             {% csrf_token %}

@@ -65,7 +65,8 @@ h2, h3 {
   color: #222;
   border-color: #ffd600;
 }
-/* Hive hexagon frame for future artwork */
+/* Hive hexagon frame for future artwork (unused) */
+/*
 .hive-frame {
   width: 120px;
   height: 104px;
@@ -83,6 +84,7 @@ h2, h3 {
   object-fit: cover;
   border-radius: 8px;
 }
+*/
 /* Hive hexagon frame for child cards */
 .hive-frame {
   width: 260px;
@@ -156,4 +158,95 @@ h2, h3 {
   vertical-align: middle;
   margin: 0 0.1em;
 }
-/* Add more bee/hive accents as needed */
+/* Gallery: honey-themed rectangular cards with hover/focus overlay */
+/* --- Reset: simple honey card style (overrides below) --- */
+.gallery-card {
+  border: 2px solid #ffd54f !important; /* honey frame */
+  border-radius: 1.25rem !important;
+  background: #fffbe6 !important;
+  box-shadow: 0 4px 16px rgba(34,34,34,0.1) !important;
+  overflow: hidden !important;
+  outline: none !important;
+}
+.gallery-media {
+  padding: 0.75rem !important;
+  background: #ffffff !important; /* inner mat */
+  border-radius: 0.75rem !important;
+  position: relative;
+}
+.gallery-img {
+  width: 100% !important;
+  max-height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 auto 0.5rem auto !important;
+  border-radius: 0.75rem !important;
+}
+/* Removed unused honey accent utilities */
+/* .honey-strip, .bee-badge, .honey-frame-card, .honeycomb-bg::after removed */
+
+/* Picture-only frame + edit icon styles */
+.picture-frame {
+  background: #ffffff;
+  border: 2px solid #ffd54f; /* honey frame */
+  border-radius: 0.75rem;
+  padding: 0.35rem;
+  box-shadow: 0 3px 10px rgba(34,34,34,0.06);
+}
+.picture-frame .gallery-img { border-radius: 0.5rem !important; margin-bottom: 0 !important; }
+
+/* Accessibility: better focus outline for icon overlay */
+.edit-icon-overlay:focus-visible {
+  outline: 2px solid #ffd600;
+  outline-offset: 2px;
+}
+
+/* Optional: clamp long descriptions to 2 lines */
+.gallery-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Edit icon overlay on gallery image */
+.gallery-media { position: relative; }
+.edit-icon-overlay {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #ffd54f;
+  color: #222;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.45rem;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.edit-icon-overlay:hover,
+.edit-icon-overlay:focus-visible {
+  background: #fff;
+  outline: 2px solid #ffd600;
+}
+@media (pointer: coarse) {
+  .edit-icon-overlay {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+  .modal .btn-close { transform: scale(1.25); }
+}
+
+/* New small utilities */
+.gallery-title { color: #ffd600; }
+.modal-honey { background: #fffbe6; }
+
+/* Utilities to replace inline styles */
+.card-honey { background: #fffbe6; border-radius: 1rem; }
+.text-honey-warn { color: #ffa000; }
+.img-preview { max-height: 220px; object-fit: cover; }

@@ -5,7 +5,7 @@
     <div class="col-md-7 col-lg-6">
       <div class="card shadow-lg">
         <div class="card-body">
-          <h2 class="card-title text-center mb-3" style="color:#ffd600;">Add Artwork for {{ child.name }} 🖼️</h2>
+          <h2 class="card-title text-center mb-3 gallery-title">Add Artwork for {{ child.name }} 🖼️</h2>
           <form method="post" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
             {{ form.non_field_errors }}

@@ -1,13 +1,30 @@
 'use strict';
 
 document.addEventListener('click', function (e) {
-  const link = e.target.closest('.open-artwork');
-  if (!link) return;
-  e.preventDefault();
-  const img = document.getElementById('artworkModalImg');
-  const title = document.getElementById('artworkModalLabel');
-  if (!img || !title) return;
-  img.src = link.getAttribute('data-img');
-  img.alt = link.getAttribute('data-title') || '';
-  title.textContent = link.getAttribute('data-title') || '';
+  const imageTrigger = e.target.closest('.open-artwork-image');
+  const actionsTrigger = e.target.closest('.open-artwork-actions');
+
+  if (imageTrigger) {
+    e.preventDefault();
+    const imgEl = document.getElementById('artworkImageModalImg');
+    const img = imageTrigger.getAttribute('data-img');
+    const title = imageTrigger.getAttribute('data-title') || '';
+    if (imgEl) { imgEl.src = img; imgEl.alt = title; }
+    return;
+  }
+
+  if (actionsTrigger) {
+    e.preventDefault();
+    const titleEl = document.getElementById('artworkActionsTitle');
+    const editEl = document.getElementById('artworkEditLink');
+    const deleteEl = document.getElementById('artworkDeleteLink');
+
+    const title = actionsTrigger.getAttribute('data-title') || '';
+    const editHref = actionsTrigger.getAttribute('data-edit');
+    const deleteHref = actionsTrigger.getAttribute('data-delete');
+
+    if (titleEl) { titleEl.textContent = title; }
+    if (editEl && editHref) { editEl.href = editHref; }
+    if (deleteEl && deleteHref) { deleteEl.href = deleteHref; }
+  }
 });
