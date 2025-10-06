@@ -250,3 +250,13 @@ h2, h3 {
 .card-honey { background: #fffbe6; border-radius: 1rem; }
 .text-honey-warn { color: #ffa000; }
 .img-preview { max-height: 220px; object-fit: cover; }
+
+/* Landing page */
+.hero-title { font-family: 'Fredoka One', cursive; font-size: 2rem; color: #222; text-shadow: 0 1px 0 #ffd600; }
+@media (min-width: 768px) { .hero-title { font-size: 2.4rem; } }
+.hero-subtitle { color: #444; }
+.feature-card { background: #fff; border: 2px solid #ffe066; border-radius: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.emoji-icon { font-size: 1.8rem; margin-bottom: 0.25rem; }
+.step-card { background: #fff; border: 2px dashed #ffe066; border-radius: 1rem; }
+.step-number { width: 36px; height: 36px; line-height: 36px; border-radius: 50%; background: #ffd600; color: #222; display: inline-block; font-weight: 700; margin-bottom: 0.25rem; }
+.trust-card { background: #fff; border: 2px solid #ffe066; border-radius: 1rem; }

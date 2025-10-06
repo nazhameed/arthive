@@ -1,56 +1,145 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mt-5">
-  <h2 class="mb-4">Welcome to Art-Hive!</h2>
-  <p>Your little one's personal art gallery. Please login or register to continue.</p>
-  <div id="auth-buttons" class="d-flex gap-2 mb-4">
-    <button class="btn btn-primary" data-form="login">Login</button>
-    <button class="btn btn-secondary" data-form="register">Register</button>
-  </div>
-  <div id="login-form" class="d-none">
-    <h3>Login</h3>
-    {% if login_error %}
-      <div class="alert alert-danger">{{ login_error }}</div>
-    {% endif %}
-    <form method="post" action="">
-      {% csrf_token %}
-      <input type="hidden" name="login" value="1">
-      {{ form.non_field_errors }}
-      {% for field in form %}
-        <div class="mb-3 row align-items-center">
-          <label for="{{ field.id_for_label }}" class="form-label col-sm-4 col-form-label">{{ field.label }}</label>
-          <div class="col-sm-8">
-            {{ field }}
-            {% for error in field.errors %}
-              <div class="text-danger">{{ error }}</div>
-            {% endfor %}
-          </div>
+<div class="container mt-5" data-active-form="{{ active_form|default:'' }}">
+  <!-- Hero -->
+  <section class="hero card-honey shadow-sm p-4 p-md-5 mb-4 text-center">
+    <h1 class="hero-title mb-2">A happy home for your child's art 🐝🎨</h1>
+    <p class="hero-subtitle mb-4">No more fridge avalanches. No more mystery piles. Every doodle gets a cozy spot in the hive.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      <button class="btn btn-primary" data-form="login" aria-label="Login">Login</button>
+      <button class="btn btn-secondary" data-form="register" aria-label="Register">Register</button>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="mb-4">
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="feature-card h-100 p-3 text-center">
+          <div class="emoji-icon" aria-hidden="true">🖼️</div>
+          <h3 class="h5">Beautiful galleries</h3>
+          <p class="mb-0">Upload artwork and view it in a kid-friendly, honey-themed gallery.</p>
         </div>
-      {% endfor %}
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-  <div id="register-form" class="d-none">
-    <h3>Register</h3>
-    {% if signup_error %}
-      <div class="alert alert-danger">{{ signup_error }}</div>
-    {% endif %}
-    <form method="post" action="">
-      {% csrf_token %}
-      <input type="hidden" name="register" value="1">
-      {% for field in signup_form %}
-        <div class="mb-3 row align-items-center">
-          <label for="{{ field.id_for_label }}" class="form-label col-sm-4 col-form-label">{{ field.label }}</label>
-          <div class="col-sm-8">
-            {{ field }}
-            {% for error in field.errors %}
-              <div class="text-danger">{{ error }}</div>
-            {% endfor %}
-          </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="feature-card h-100 p-3 text-center">
+          <div class="emoji-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+          <h3 class="h5">Profiles for each child</h3>
+          <p class="mb-0">Create profiles per child and keep their creations neatly organized.</p>
         </div>
-      {% endfor %}
-      <button type="submit" class="btn btn-secondary">Register</button>
-    </form>
-  </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="feature-card h-100 p-3 text-center">
+          <div class="emoji-icon" aria-hidden="true">🔒</div>
+          <h3 class="h5">Private by default</h3>
+          <p class="mb-0">Your gallery is private to you. Images are stored securely in the cloud.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quirky perks -->
+  <section class="trust-card p-3 p-md-4 mb-4">
+    <h2 class="h5 mb-2 text-center">Relatable parent perks</h2>
+    <ul class="mb-0 list-unstyled text-center">
+      <li>🗑️🚫 Bin the mess, not the masterpiece — keep every creation safely stored.</li>
+      <li>🧲 Your fridge can finally retire from gallery duty (no more magnet Tetris).</li>
+      <li>📦 Farewell clutter: scan, snap, and keep the memory without the pile.</li>
+    </ul>
+  </section>
+
+  <!-- How it works -->
+  <section class="mb-5">
+    <h2 class="h4 text-center mb-3">How it works</h2>
+    <div class="row g-3 text-center">
+      <div class="col-6 col-md-3">
+        <div class="step-card p-3 h-100">
+          <div class="step-number" aria-hidden="true">1</div>
+          <p class="mb-0">Register</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="step-card p-3 h-100">
+          <div class="step-number" aria-hidden="true">2</div>
+          <p class="mb-0">Add a child</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="step-card p-3 h-100">
+          <div class="step-number" aria-hidden="true">3</div>
+          <p class="mb-0">Upload artwork</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="step-card p-3 h-100">
+          <div class="step-number" aria-hidden="true">4</div>
+          <p class="mb-0">Enjoy the gallery</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust/Privacy -->
+  <section class="trust-card p-3 p-md-4 mb-4">
+    <h2 class="h5 mb-2">Parents first</h2>
+    <ul class="mb-0">
+      <li>Private by default — only you can view your gallery.</li>
+      <li>Delete or edit any artwork at any time.</li>
+      <li>Accessible and responsive design for all devices.</li>
+    </ul>
+  </section>
+
+  <!-- Auth forms -->
+  <section aria-label="Authentication forms">
+    <div id="auth-buttons" class="d-flex gap-2 mb-4">
+      <button class="btn btn-primary" data-form="login">Login</button>
+      <button class="btn btn-secondary" data-form="register">Register</button>
+    </div>
+    <div id="login-form" class="d-none">
+      <h3>Login</h3>
+      {% if login_error %}
+        <div class="alert alert-danger">{{ login_error }}</div>
+      {% endif %}
+      <form method="post" action="">
+        {% csrf_token %}
+        <input type="hidden" name="login" value="1">
+        {{ form.non_field_errors }}
+        {% for field in form %}
+          <div class="mb-3 row align-items-center">
+            <label for="{{ field.id_for_label }}" class="form-label col-sm-4 col-form-label">{{ field.label }}</label>
+            <div class="col-sm-8">
+              {{ field }}
+              {% for error in field.errors %}
+                <div class="text-danger">{{ error }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+    <div id="register-form" class="d-none">
+      <h3>Register</h3>
+      {% if signup_error %}
+        <div class="alert alert-danger">{{ signup_error }}</div>
+      {% endif %}
+      <form method="post" action="">
+        {% csrf_token %}
+        <input type="hidden" name="register" value="1">
+        {% for field in signup_form %}
+          <div class="mb-3 row align-items-center">
+            <label for="{{ field.id_for_label }}" class="form-label col-sm-4 col-form-label">{{ field.label }}</label>
+            <div class="col-sm-8">
+              {{ field }}
+              {% for error in field.errors %}
+                <div class="text-danger">{{ error }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-secondary">Register</button>
+      </form>
+    </div>
+  </section>
 </div>
 {% endblock %}
