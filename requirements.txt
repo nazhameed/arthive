@@ -1,3 +1,17 @@
 asgiref==3.9.2
 Django==5.2.6
 sqlparse==0.5.3
+
+# Heroku deployment
+gunicorn==21.2.0
+whitenoise==6.7.0
+psycopg2-binary==2.9.9
+dj-database-url==2.2.0
+
+# Media / images
+Pillow==10.4.0
+cloudinary==1.41.0
+django-cloudinary-storage==0.3.0
+
+# Optional env loader
+python-dotenv==1.0.1
