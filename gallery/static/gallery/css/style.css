@@ -389,3 +389,29 @@ h2, h3 {
 .honeycomb-open {
   z-index: 10; /* was 2; raise to avoid any stacking issues */
 }
+
+/* How it works — step cards and numbers */
+.step-card {
+  background: #fffdf0;
+  border: 1px solid #ffe066;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(255, 214, 0, 0.1);
+}
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffe066, #ffd600);
+  color: #222;
+  font-weight: 800;
+  font-family: 'Fredoka One', 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 0 #ffb300, inset 0 0 0 2px #fff1a8;
+}
+@media (min-width: 768px) {
+  .step-number { width: 52px; height: 52px; font-size: 1.25rem; }
+}
