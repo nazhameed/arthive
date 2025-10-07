@@ -21,9 +21,12 @@
               <label for="id_description" class="form-label fw-bold">Description</label>
               {{ form.description }}
             </div>
-            <div class="d-flex gap-2">
+            <div class="d-flex gap-2 align-items-center">
               <button type="submit" class="btn btn-success fw-bold">Save Changes</button>
               <a href="{% url 'gallery' child.id %}" class="btn btn-outline-secondary">Cancel</a>
+              <a href="{% url 'delete_artwork' child_id=child.id artwork_id=artwork.id %}" class="btn btn-danger ms-auto" aria-label="Delete {{ artwork.title }}">
+                Delete
+              </a>
             </div>
           </form>
         </div>

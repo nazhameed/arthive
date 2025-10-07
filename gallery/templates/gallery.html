@@ -1,42 +1,36 @@
 {% extends 'base.html' %}
+{% load cloudinary %}
 {% block content %}
 <div class="container container-medium py-4">
   <div class="text-center mb-4">
-    <!-- Removed back icon link to keep navigation only in navbar -->
     <h2 class="dashboard-heading d-inline-block mb-0">{{ child.name }}'s Gallery 🖼️</h2>
   </div>
 
   {% if artworks %}
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+    <div class="honeycomb-grid" role="list" aria-label="Artwork honeycomb grid">
       {% for artwork in artworks %}
-        <div class="col">
-          <div class="card gallery-card">
-            <div class="gallery-media picture-frame">
-              <a href="#" class="open-artwork-image" data-bs-toggle="modal" data-bs-target="#artworkImageModal"
-                 data-img="{{ artwork.image.url }}"
-                 data-title="{{ artwork.title }}"
-                 aria-label="View {{ artwork.title }}">
-                <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="gallery-img" loading="lazy">
-              </a>
-              <!-- Edit icon overlay on image -->
-              <a href="#"
-                 class="edit-icon-overlay open-artwork-actions"
-                 data-bs-toggle="modal"
-                 data-bs-target="#artworkActionsModal"
-                 data-title="{{ artwork.title }}"
-                 data-edit="{% url 'edit_artwork' child.id artwork.id %}"
-                 data-delete="{% url 'delete_artwork' child.id artwork.id %}"
-                 title="Edit or delete {{ artwork.title }}"
-                 aria-label="Edit or delete {{ artwork.title }}">
-                ✏️
-              </a>
+        <div class="honeycomb-cell" role="listitem">
+          <div class="honeycomb-media" aria-label="{{ artwork.title|default:'Artwork' }}">
+            <!-- Top: image + click to expand -->
+            <div class="honeycomb-top">
+              <img src="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' %}" alt="{{ artwork.title|default:'Artwork' }}" class="honeycomb-img" loading="lazy">
+              <button type="button"
+                      class="honeycomb-open open-artwork-image"
+                      data-bs-toggle="modal"
+                      data-bs-target="#artworkImageModal"
+                      data-img="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' %}"
+                      data-title="{{ artwork.title|default:'Artwork' }}"
+                      data-desc="{{ artwork.description|default:'' }}"
+                      data-date="{{ artwork.created_at|date:'M d, Y' }}"
+                      data-edit="{% url 'edit_artwork' child_id=child.id artwork_id=artwork.id %}">
+                <span class="visually-hidden">Open “{{ artwork.title|default:'Artwork' }}”</span>
+              </button>
             </div>
-            <div class="card-body p-2 text-center">
-              <h6 class="mb-1 gallery-title">{{ artwork.title }}</h6>
-              {% if artwork.description %}
-                <p class="gallery-desc small mb-1 text-muted">{{ artwork.description }}</p>
-              {% endif %}
-              <p class="gallery-date mb-0 text-secondary">{{ artwork.created_at|date:'d M Y' }}</p>
+
+            <!-- Bottom: title + date only (reverted actions) -->
+            <div class="honeycomb-bottom">
+              <h3 class="honeycomb-title mb-0">{{ artwork.title }}</h3>
+              <small class="honeycomb-date d-block">{{ artwork.created_at|date:'M d, Y' }}</small>
             </div>
           </div>
         </div>
@@ -47,31 +41,29 @@
   {% endif %}
 </div>
 
-<!-- Image-only modal -->
+<!-- Image modal used by gallery.js -->
 <div class="modal fade" id="artworkImageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content modal-honey">
       <div class="modal-body text-center p-0">
         <button type="button" class="btn-close position-absolute end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
         <img src="" alt="" class="img-fluid rounded" id="artworkImageModalImg">
+        <!-- Caption + edit action in modal -->
+        <div class="d-flex align-items-start justify-content-between gap-2 p-3">
+          <div class="text-start flex-grow-1">
+            <h5 id="artworkImageModalTitle" class="mb-1"></h5>
+            <small id="artworkImageModalDate" class="modal-date d-block mb-1" aria-live="polite"></small>
+            <p id="artworkImageModalDesc" class="mb-0 text-muted"></p>
+          </div>
+          <a id="artworkImageModalEdit" href="#" class="btn btn-honey-ghost" aria-label="Edit artwork">
+            <i class="bi bi-pencil-square" aria-hidden="true"></i>
+            <span class="ms-1">Edit</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Actions modal (Edit/Delete) -->
-<div class="modal fade" id="artworkActionsModal" tabindex="-1" aria-labelledby="artworkActionsTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content modal-honey">
-      <div class="modal-header">
-        <h5 class="modal-title" id="artworkActionsTitle"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-footer justify-content-end">
-        <a id="artworkEditLink" href="#" class="btn btn-primary">Edit</a>
-        <a id="artworkDeleteLink" href="#" class="btn btn-danger">Delete</a>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- [Reverted] Removed the actions modal to avoid managing from the gallery -->
 {% endblock %}

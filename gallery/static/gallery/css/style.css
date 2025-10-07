@@ -11,8 +11,22 @@ body {
   font-weight: 600;
   text-shadow: 0 1px 0 #ffd600;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #ffe066;
+  border-bottom: 0; /* replaced by centered short rule below */
   padding-bottom: 0.5rem;
+  text-align: center;
+  display: block;                   /* allow auto margins to center */
+  width: max-content;               /* shrink to text width */
+  margin-left: auto;                /* center block */
+  margin-right: auto;
+}
+.dashboard-heading::after {
+  content: "";
+  display: block;
+  width: 100%;                     /* match heading text width */
+  height: 2px;
+  background: #ffe066;
+  margin: 0.5rem auto 0;    /* centered under text */
+  border-radius: 2px;
 }
 .navbar {
   background-color: #ffd600 !important;
@@ -50,7 +64,10 @@ body {
 }
 @media (min-width: 1200px) {
   .container-wide { max-width: 1200px; }
-  .container-medium { max-width: 1000px; }
+  .container-medium { max-width: min(96vw, 1400px); }
+}
+@media (min-width: 1600px) {
+  .container-medium { max-width: min(94vw, 1600px); }
 }
 .btn-primary {
   background-color: #222;
@@ -70,6 +87,43 @@ body {
   background-color: #444;
   color: #ffd600;
 }
+
+/* Honey-themed buttons for dashboard + general use */
+.btn-honey {
+  background: #ffd600;
+  color: #222;
+  border: 2px solid #ffb300;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+}
+.btn-honey:hover { background: #ffde33; color: #222; border-color: #ffb300; }
+
+.btn-honey-dark {
+  background: #222;
+  color: #ffd600;
+  border: 2px solid #222;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+}
+.btn-honey-dark:hover { background: #333; color: #ffd600; border-color: #222; }
+
+.btn-honey-ghost {
+  background: #fffbe6;
+  color: #222;
+  border: 2px solid #ffd54f;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+}
+.btn-honey-ghost:hover { background: #fff7c2; color: #222; border-color: #ffd54f; }
+
+/* Shared focus states for custom honey buttons */
+.btn-honey:focus-visible,
+.btn-honey-dark:focus-visible,
+.btn-honey-ghost:focus-visible { outline: 3px solid #ffd600; outline-offset: 2px; }
+
 h2, h3 {
   color: #222;
   font-family: 'Fredoka One', 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
@@ -81,33 +135,14 @@ h2, h3 {
   color: #222;
   border-color: #ffd600;
 }
-/* Hive hexagon frame for future artwork (unused) */
-/*
-.hive-frame {
-  width: 120px;
-  height: 104px;
-  background: #ffd600;
-  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
-  box-shadow: 0 2px 8px rgba(34,34,34,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem auto;
-}
-.hive-frame img {
-  width: 90px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-*/
-/* Hive hexagon frame for child cards */
+
+/* Hive hexagon frame for child cards (refined) */
 .hive-frame {
   width: 260px;
   height: 225px;
-  background: #ffd600;
+  background: linear-gradient(180deg, #ffe066 0%, #ffd600 60%, #ffc400 100%);
   clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
-  box-shadow: 0 2px 8px rgba(34,34,34,0.12);
+  box-shadow: 0 3px 10px rgba(34,34,34,0.12), inset 0 0 0 3px #fff1a8, inset 0 0 18px rgba(255,206,0,0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,11 +150,22 @@ h2, h3 {
   margin: 1rem auto;
   padding: 0.5rem 0.5rem;
   text-align: center;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.hive-frame:hover,
+.hive-frame:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34,34,34,0.16), inset 0 0 0 3px #fff1a8, inset 0 0 18px rgba(255,206,0,0.35);
+  outline: none;
+}
+
 .hive-frame .card-body {
   background: transparent;
   box-shadow: none;
-  width: 90%;
+  width: 92%;
   padding: 0.5rem 0;
   margin: 0 auto;
   display: flex;
@@ -129,31 +175,17 @@ h2, h3 {
 }
 .hive-frame h2 {
   color: #222;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
   text-align: center;
 }
-.hive-frame p {
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-.hive-frame .btn {
-  font-size: 0.95rem;
-}
-.hive-frame .btn-view-gallery {
-  background-color: #ffb300;
-  color: #222;
-  border: none;
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(255,179,0,0.12);
-}
-.hive-frame .btn-view-gallery:hover,
-.hive-frame .btn-view-gallery:focus {
-  background-color: #ffd600;
-  color: #222;
-  outline: 2px solid #ffb300;
-}
-/* Logo text effect */
+.hive-frame p { margin-bottom: 0.35rem; text-align: center; }
+.hive-frame .btn { font-size: 0.95rem; }
+.hive-frame .btn:focus-visible { outline: 3px solid #ffd600; outline-offset: 2px; }
+/* New: small stat line for profile cards */
+.hive-stats { font-size: 0.9rem; color: #5c4a00; font-weight: 700; margin: 0.15rem 0 0; }
+
+/* Logo text effect (restored) */
 @keyframes logo-buzz {
   0% { transform: rotate(-2deg) scale(1.02); }
   100% { transform: rotate(2deg) scale(1.08); }
@@ -169,110 +201,191 @@ h2, h3 {
   font-weight: bold;
   letter-spacing: 2px;
 }
-.logo-bee {
-  font-size: 1.3rem;
-  vertical-align: middle;
-  margin: 0 0.1em;
-}
-/* Gallery: honey-themed rectangular cards with hover/focus overlay */
-/* --- Reset: simple honey card style (overrides below) --- */
-.gallery-card {
-  border: 2px solid #ffd54f !important; /* honey frame */
-  border-radius: 1.25rem !important;
-  background: #fffbe6 !important;
-  box-shadow: 0 4px 16px rgba(34,34,34,0.1) !important;
-  overflow: hidden !important;
-  outline: none !important;
-}
-.gallery-media {
-  padding: 0.75rem !important;
-  background: #ffffff !important; /* inner mat */
-  border-radius: 0.75rem !important;
+
+/* === Honeycomb (stable, flat-top) — touching with single seam (refined) === */
+.honeycomb-grid {
+  --hex-w: 320px;              /* base hex width */
+  --hex-h: calc(var(--hex-w) * 0.866);
+  --stagger: calc(var(--hex-h) / 2);       /* exact half-height */
+  --hex-border: 0px;                         /* no visible border */
+  --stagger-offset: var(--stagger);          /* do not subtract border when stroke is internal */
+  --hex-edge: 6px;                 /* top/bottom edge thickness (increased for visibility) */
+  --edge-top: #fffbe6;             /* match page bg start */
+  --edge-bottom: #fffde4;          /* match page bg end */
+  --hex-stroke: 8px;                 /* thicker full-hex outline for visibility */
+  --hex-stroke-color: var(--edge-top); /* match page background color */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--hex-w), var(--hex-w)));
+  justify-content: center;
+  gap: 0;                                   /* cells touch */
+  padding-top: clamp(1rem, 2.5vw, 2rem);
+  padding-bottom: var(--stagger);           /* room for staggered row */
   position: relative;
+  background: none;                          /* no canvas */
+  overflow-x: clip;
 }
-.gallery-img {
-  width: 100% !important;
-  max-height: 180px !important;
-  object-fit: cover !important;
-  display: block !important;
-  margin: 0 auto 0.5rem auto !important;
-  border-radius: 0.75rem !important;
-}
-/* Removed unused honey accent utilities */
-/* .honey-strip, .bee-badge, .honey-frame-card, .honeycomb-bg::after removed */
+@media (max-width: 575.98px) { .honeycomb-grid { --hex-w: min(95vw, 300px); } }
 
-/* Picture-only frame + edit icon styles */
-.picture-frame {
-  background: #ffffff;
-  border: 2px solid #ffd54f; /* honey frame */
-  border-radius: 0.75rem;
-  padding: 0.35rem;
-  box-shadow: 0 3px 10px rgba(34,34,34,0.06);
+/* vertical stagger via transform */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .honeycomb-grid > .honeycomb-cell:nth-child(2n) { transform: translateY(var(--stagger-offset)); }
 }
-.picture-frame .gallery-img { border-radius: 0.5rem !important; margin-bottom: 0 !important; }
-
-/* Accessibility: better focus outline for icon overlay */
-.edit-icon-overlay:focus-visible {
-  outline: 2px solid #ffd600;
-  outline-offset: 2px;
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .honeycomb-grid > .honeycomb-cell:nth-child(3n+2) { transform: translateY(var(--stagger-offset)); }
+}
+@media (min-width: 1200px) {
+  .honeycomb-grid > .honeycomb-cell:nth-child(4n+2),
+  .honeycomb-grid > .honeycomb-cell:nth-child(4n+4) { transform: translateY(var(--stagger-offset)); }
 }
 
-/* Optional: clamp long descriptions to 2 lines */
-.gallery-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.honeycomb-cell {
+  position: relative;
+  margin: 0 calc(var(--hex-w) * -0.125); /* correct 12.5% per side overlap */
 }
 
-/* Edit icon overlay on gallery image */
-.gallery-media { position: relative; }
-.edit-icon-overlay {
+/* Force explicit column counts to match stagger patterns */
+@media (max-width: 575.98px) {
+  .honeycomb-grid { grid-template-columns: repeat(1, minmax(var(--hex-w), var(--hex-w))); }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .honeycomb-grid { grid-template-columns: repeat(2, minmax(var(--hex-w), var(--hex-w))); }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .honeycomb-grid { grid-template-columns: repeat(3, minmax(var(--hex-w), var(--hex-w))); }
+}
+@media (min-width: 1200px) {
+  .honeycomb-grid { grid-template-columns: repeat(4, minmax(var(--hex-w), var(--hex-w))); }
+}
+
+/* Keep hex mask solid and consistent — add top/bottom edges matching page bg */
+.honeycomb-media {
+    position: relative;
+    width: 100%;
+    height: var(--hex-h);
+    background: #ffffff;
+    overflow: hidden;
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%) !important;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%) !important;
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    outline: none;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    /* (border and margin reset removed) */
+    box-shadow: 0 3px 10px rgba(34,34,34,0.08),
+                            inset 0 var(--hex-edge) 0 0 var(--edge-top),            /* top edge */
+                            inset 0 calc(-1 * var(--hex-edge)) 0 0 var(--edge-bottom); /* bottom edge */
+}
+
+/* Add a subtle full-hex outline that follows the clip-path (for visibility in UI) */
+.honeycomb-media::before {
+  content: "";
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid #ffd54f;
-  color: #222;
-  border-radius: 0.5rem;
-  padding: 0.25rem 0.45rem;
-  text-decoration: none;
-  line-height: 1;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-.edit-icon-overlay:hover,
-.edit-icon-overlay:focus-visible {
-  background: #fff;
-  outline: 2px solid #ffd600;
-}
-@media (pointer: coarse) {
-  .edit-icon-overlay {
-    min-width: 44px;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-  }
-  .modal .btn-close { transform: scale(1.25); }
+  inset: 0;
+  pointer-events: none;
+  -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  box-shadow: inset 0 0 0 var(--hex-stroke) var(--hex-stroke-color);
 }
 
-/* New small utilities */
-.gallery-title { color: #ffd600; }
-.modal-honey { background: #fffbe6; }
+/* Restore caption area styles */
+.honeycomb-bottom {
+  position: relative; z-index: 1;
+  min-height: 56px;
+  padding: 0.55rem 0.65rem 0.6rem;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.25rem;
+  background: linear-gradient(to top, rgba(255,214,0,0.96) 0%, rgba(255,214,0,0.78) 60%, rgba(255,214,0,0.18) 100%);
+  -webkit-backdrop-filter: blur(2px) saturate(1.05);
+  backdrop-filter: blur(2px) saturate(1.05);
+}
+.honeycomb-title {
+  margin: 0; min-width: 0;
+  font-size: 1.08rem; font-weight: 800; line-height: 1.15;
+  display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+.honeycomb-date { display: block; white-space: nowrap; font-size: 0.85rem; font-weight: 700; color: #2e2300; }
 
-/* Utilities to replace inline styles */
-.card-honey { background: #fffbe6; border-radius: 1rem; }
-.text-honey-warn { color: #ffa000; }
-.img-preview { max-height: 220px; object-fit: cover; }
+/* Click overlay only over the image (top area) */
+.honeycomb-top { position: relative; z-index: 0; overflow: hidden; display: grid; align-items: stretch; justify-items: stretch; }
+.honeycomb-open {
+  position: absolute;
+  inset: 0; /* anchored to .honeycomb-top */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 10; /* was 2; raise to avoid any stacking issues */
+  cursor: pointer;
+}
+.honeycomb-open:focus-visible { outline: 3px solid #ffd600; outline-offset: 2px; }
 
-/* Landing page */
-.hero-title { font-family: 'Fredoka One', cursive; font-size: 2rem; color: #222; text-shadow: 0 1px 0 #ffd600; }
-@media (min-width: 768px) { .hero-title { font-size: 2.4rem; } }
-.hero-subtitle { color: #444; }
-.feature-card { background: #fff; border: 2px solid #ffe066; border-radius: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.emoji-icon { font-size: 1.8rem; margin-bottom: 0.25rem; }
-.step-card { background: #fff; border: 2px dashed #ffe066; border-radius: 1rem; }
-.step-number { width: 36px; height: 36px; line-height: 36px; border-radius: 50%; background: #ffd600; color: #222; display: inline-block; font-weight: 700; margin-bottom: 0.25rem; }
-.trust-card { background: #fff; border: 2px solid #ffe066; border-radius: 1rem; }
+/* Ensure gallery images fill the hex area and are visible */
+.honeycomb-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Dashboard: scoped grid so profiles don’t collapse into a column (restored) */
+.page-dashboard .profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px)); /* fixed, tidy columns */
+  justify-content: center; /* center the set */
+  justify-items: center;   /* center cards in tracks */
+  gap: clamp(12px, 2vw, 20px); /* balanced spacing */
+  align-items: start;
+}
+@media (min-width: 576px) {
+  .page-dashboard .profiles-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 300px)); }
+}
+@media (min-width: 992px) {
+  .page-dashboard .profiles-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 300px)); }
+}
+.page-dashboard .profiles-grid .hive-frame { margin: 0; }
+@media (max-width: 575.98px) { .page-dashboard .profiles-grid { grid-template-columns: 1fr; } }
+
+/* Remove dashboard-specific stagger and border collapse rules */
+/* (Previously added transform-based row staggering and borders for .hive-frame have been removed) */
+
+/* Restore dashboard side padding (dashboard only) */
+.page-dashboard { padding-inline: clamp(1.25rem, 5vw, 3rem); }
+@media (min-width: 992px) { .page-dashboard { padding-inline: clamp(1.25rem, 5vw, 3rem); } }
+
+/* Gallery: avoid edge cut-off and accommodate overlap */
+.honeycomb-grid { overflow-x: visible; }
+
+/* Mobile (1 column): no overlap and no extra side padding */
+@media (max-width: 575.98px) {
+  .honeycomb-cell { margin: 0; }
+  .honeycomb-grid { padding-inline: 0; }
+}
+
+/* 2+ columns: add side padding equal to overlap so outer cells are fully visible */
+@media (min-width: 576px) {
+  .honeycomb-grid { padding-inline: calc(var(--hex-w) * 0.125); }
+}
+
+/* Gallery: responsive hex width so columns + overlap fit without clipping */
+@media (min-width: 576px) and (max-width: 991.98px) { /* 2-up */
+  .honeycomb-grid { --hex-w: min(calc(96vw / 2.25), 320px); padding-inline: 0; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) { /* 3-up */
+  .honeycomb-grid { --hex-w: min(calc(96vw / 3.25), 320px); padding-inline: 0; }
+}
+@media (min-width: 1200px) { /* 4-up */
+  .honeycomb-grid { --hex-w: min(calc(96vw / 4.25), 320px); padding-inline: 0; }
+}
+
+/* Gallery: ensure no clipping at edges when overlapping (override) */
+@media (min-width: 576px) and (max-width: 991.98px) { /* 2-up */
+  .honeycomb-grid { padding-inline: calc(var(--hex-w) * 0.125); }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) { /* 3-up */
+  .honeycomb-grid { padding-inline: calc(var(--hex-w) * 0.125); }
+}
+@media (min-width: 1200px) { /* 4-up */
+  .honeycomb-grid { padding-inline: calc(var(--hex-w) * 0.125); }
+}
+
+/* Neutralize the full-hex outline to avoid side tip color bleed */
+.honeycomb-grid .honeycomb-media::before { content: none !important; }
+
+/* Ensure image click overlay stays on top so modal triggers reliably */
+.honeycomb-open {
+  z-index: 10; /* was 2; raise to avoid any stacking issues */
+}

@@ -1,33 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container container-medium mt-5">
+<div class="container container-medium mt-5 page-dashboard">
   <h1 class="dashboard-heading">🐝 Hive Dashboard</h1>
   <p>Welcome, <strong>{{ user.username }}</strong>!</p>
   {% if children %}
-    <div class="row">
+    <div class="profiles-grid">
       {% for child in children %}
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
-          <div class="hive-frame">
-            <div class="card-body text-center">
-              <h2 class="fw-bold mb-2">🐝 {{ child.name }}</h2>
-              {% if child.age %}
-                <p class="mb-2">Age: {{ child.age }}</p>
-              {% endif %}
-              {% if child.artworks.all|length == 0 %}
-                <p class="text-muted mb-2">No artworks uploaded yet.</p>
-              {% endif %}
-              <div class="d-flex flex-wrap gap-2 mt-2 justify-content-center">
-                <a href="{% url 'add_artwork' child.id %}" class="btn btn-sm btn-success" aria-label="Add artwork for {{ child.name }}">Add Artwork</a>
-                <a href="{% url 'edit_child' child.id %}" class="btn btn-sm btn-primary" aria-label="Edit or delete {{ child.name }}'s profile">Edit Child</a>
-                <a href="{% url 'gallery' child.id %}" class="btn btn-sm btn-warning" aria-label="View gallery for {{ child.name }}">View Gallery</a>
-              </div>
+        <div class="hive-frame">
+          <div class="card-body text-center">
+            <h2 class="fw-bold mb-2">🐝 {{ child.name }}</h2>
+            {% if child.age %}
+              <p class="mb-1">Age: {{ child.age }}</p>
+            {% endif %}
+            <p class="hive-stats">{{ child.artworks.all|length }} artwork{% if child.artworks.all|length != 1 %}s{% endif %}</p>
+            <div class="d-flex flex-wrap gap-2 mt-2 justify-content-center">
+              <a href="{% url 'add_artwork' child.id %}" class="btn btn-honey" aria-label="Add artwork for {{ child.name }}">Add Artwork</a>
+              <a href="{% url 'edit_child' child.id %}" class="btn btn-honey-dark" aria-label="Edit or delete {{ child.name }}'s profile">Edit Child</a>
+              <a href="{% url 'gallery' child.id %}" class="btn btn-honey-ghost" aria-label="View gallery for {{ child.name }}">View Gallery</a>
             </div>
           </div>
         </div>
       {% endfor %}
+      {% if children|length < 5 %}
+      <!-- Themed CTA tile keeps grid balanced for 1–5 profiles -->
+      <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center" aria-label="Add a new child">
+        <span class="fw-bold">➕ Add Child</span>
+      </a>
+      {% endif %}
     </div>
   {% else %}
-    <p class="text-muted">Add your first child to get started.</p>
+    <div class="profiles-grid">
+      <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center" aria-label="Add your first child">
+        <span class="fw-bold">➕ Add Your First Child</span>
+      </a>
+    </div>
   {% endif %}
 </div>
 {% endblock %}
