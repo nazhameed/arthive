@@ -6,6 +6,12 @@ from pathlib import Path
 import dj_database_url
 import os
 
+# Load local env.py if it exists (for local dev only)
+try:
+    import env
+except ImportError:
+    pass
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -109,12 +115,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/dashboard/'  # Redirect after login
 
+# Cloudinary configuration (reads from env vars)
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dwk7vsn7d',
-    'API_KEY': '374371444555299',
-    'API_SECRET': 'fv-3rafZ3VS0fypvxQsJUzsk25Q',
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
-
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
