@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security
 SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-change-me')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if not DEBUG else []
+ALLOWED_HOSTS = ['arthive-3f3b6382fabb.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -120,6 +120,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Heroku security / proxy
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGIN', 'https://arthive.herokuapp.com')]
+CSRF_TRUSTED_ORIGINS = ['https://arthive-3f3b6382fabb.herokuapp.com']
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
