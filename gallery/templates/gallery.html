@@ -6,15 +6,6 @@
     <h2 class="dashboard-heading d-inline-block mb-0">{{ child.name }}'s Gallery 🖼️</h2>
   </div>
 
-  {% if messages %}
-    {% for message in messages %}
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    {% endfor %}
-  {% endif %}
-
   {% if artworks %}
     <div class="honeycomb-grid" role="list" aria-label="Artwork honeycomb grid">
       {% for artwork in artworks %}
