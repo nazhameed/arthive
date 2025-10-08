@@ -25,6 +25,7 @@ def index(request):
                 user.set_password(signup_form.cleaned_data['password'])
                 user.save()
                 login(request, user)
+                messages.success(request, f'Welcome to Art-Hive, {user.username}! 🐝')
                 return redirect('dashboard')
             else:
                 signup_error = signup_form.errors
@@ -38,6 +39,7 @@ def index(request):
                 )
                 if user is not None:
                     login(request, user)
+                    messages.success(request, f'Welcome back, {user.username}! 🐝')
                     return redirect('dashboard')
                 else:
                     login_error = 'Invalid username or password.'
