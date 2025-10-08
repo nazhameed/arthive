@@ -147,3 +147,20 @@ def delete_artwork(request, child_id, artwork_id):
         messages.success(request, f"Artwork '{title}' deleted!")
         return redirect('gallery', child_id=child.id)
     return render(request, 'delete_artwork.html', {'child': child, 'artwork': artwork})
+
+def custom_logout(request):
+    """Custom logout view to add a success message."""
+    from django.contrib.auth import logout
+    logout(request)
+    # Render index page with message instead of redirecting
+    # This way the message persists after logout
+    login_form = AuthenticationForm()
+    signup_form = SignUpForm()
+    messages.success(request, 'You have been logged out. See you soon! 🐝')
+    return render(request, 'index.html', {
+        'form': login_form,
+        'signup_form': signup_form,
+        'login_error': None,
+        'signup_error': None,
+        'active_form': None
+    })
