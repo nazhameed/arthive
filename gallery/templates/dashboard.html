@@ -2,6 +2,16 @@
 {% block content %}
 <div class="container container-medium mt-5 page-dashboard">
   <h1 class="dashboard-heading">🐝 Hive Dashboard</h1>
+  
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+  
   <p>Welcome, <strong>{{ user.username }}</strong>!</p>
   {% if children %}
     <div class="profiles-grid">
