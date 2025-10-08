@@ -1,9 +1,25 @@
 /* Art-Hive global styles - bee/hive theme */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap');
+
+/* Sticky footer setup */
+html, body {
+  height: 100%;
+  margin: 0;
+}
 body {
   background: linear-gradient(135deg, #fffbe6 0%, #fffde4 100%);
   font-family: 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+#main-content {
+  flex: 1 0 auto;
+}
+.site-footer {
+  flex-shrink: 0;
+}
+
 .dashboard-heading {
   font-size: 2rem;
   color: #222;
@@ -56,23 +72,6 @@ body {
   margin: 0;
   color: #222;
   font-weight: 600;
-}
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-}
-.footer-brand {
-  font-family: 'Fredoka One', 'Quicksand', 'Segoe UI', 'Arial', sans-serif;
-  font-size: 1.25rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #222;
-}
-.footer-copy {
-  font-size: 0.9rem;
-  color: #444;
 }
 
 .container {
