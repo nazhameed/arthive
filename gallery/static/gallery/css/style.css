@@ -64,14 +64,15 @@ body {
 .site-footer {
   background-color: #ffd600;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
-  margin-top: 3rem;
-  padding: 1.5rem 0;
+  margin-top: 2rem;
+  padding: 0.75rem 0;
   text-align: center;
 }
 .site-footer p {
   margin: 0;
   color: #222;
   font-weight: 600;
+  font-size: 0.85rem;
 }
 
 .container {
