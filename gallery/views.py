@@ -8,8 +8,6 @@ from .models import Child, Artwork
 
 def index(request):
     # Show landing page with login/register forms if not logged in
-    if request.user.is_authenticated:
-        return redirect('dashboard')
     login_form = AuthenticationForm()
     signup_form = SignUpForm()
     login_error = None
@@ -26,7 +24,7 @@ def index(request):
                 user.save()
                 login(request, user)
                 messages.success(request, f'Welcome to Art-Hive, {user.username}! 🐝')
-                return redirect('dashboard')
+                # No redirect, just render index.html
             else:
                 signup_error = signup_form.errors
         elif 'login' in request.POST:
@@ -40,7 +38,7 @@ def index(request):
                 if user is not None:
                     login(request, user)
                     messages.success(request, f'Welcome back, {user.username}! 🐝')
-                    return redirect('dashboard')
+                    # No redirect, just render index.html
                 else:
                     login_error = 'Invalid username or password.'
             else:
