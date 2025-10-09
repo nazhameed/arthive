@@ -22,14 +22,14 @@
       {% endfor %}
       {% if children|length < 5 %}
       <!-- Themed CTA tile keeps grid balanced for 1–5 profiles -->
-      <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center" aria-label="Add a new child">
+      <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center add-child-link" aria-label="Add a new child">
         <span class="fw-bold">➕ Add Child</span>
       </a>
       {% endif %}
     </div>
   {% else %}
     <div class="profiles-grid">
-      <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center" aria-label="Add your first child">
+      <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center add-child-link" aria-label="Add your first child">
         <span class="fw-bold">➕ Add Your First Child</span>
       </a>
     </div>

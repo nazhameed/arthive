@@ -464,3 +464,13 @@ h2, h3 {
 @media (min-width: 768px) {
   .step-number { width: 52px; height: 52px; font-size: 1.25rem; }
 }
+
+.add-child-link {
+  color: #111 !important;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.add-child-link:hover,
+.add-child-link:focus {
+  color: #000 !important;
+}
