@@ -61,6 +61,7 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
   - **Relationship:** Each Child can have many Artworks
 
 **Diagram:**
+![Entity relationship diagram](gallery/static/assets/erd.png)
 
 ## Accessibility & UX
 - Accessibility Features
