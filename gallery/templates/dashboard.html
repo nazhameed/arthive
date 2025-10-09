@@ -20,7 +20,7 @@
           </div>
         </div>
       {% endfor %}
-      {% if children|length < 5 %}
+      {% if children|length < 10 %}
       <!-- Themed CTA tile keeps grid balanced for 1–5 profiles -->
       <a href="{% url 'add_child' %}" class="hive-frame hive-frame--cta text-center add-child-link" aria-label="Add a new child">
         <span class="fw-bold">➕ Add Child</span>
