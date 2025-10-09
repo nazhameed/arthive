@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container container-medium py-4">
+<div class="container container-medium py-5">
   <div class="row justify-content-center">
-    <div class="col-md-7 col-lg-6">
-      <div class="card shadow-lg">
-        <div class="card-body">
-          <h2 class="card-title text-center mb-3 gallery-title">Edit Child 🐝</h2>
-          <form method="post" novalidate>
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm card-honey">
+        <div class="card-body p-4">
+          <!-- Back button -->
+          <a href="{% url 'dashboard' %}" class="btn btn-outline-dark btn-sm mb-3"><i class="bi bi-arrow-left"></i> Back</a>
+          <h3 class="mb-3 text-honey-warn">Edit Child Profile</h3>
+          <form method="post" novalidate class="mb-3">
             {% csrf_token %}
             {{ form.non_field_errors }}
             <div class="mb-3">
@@ -18,7 +20,7 @@
               {{ form.age }}
             </div>
             <button type="submit" class="btn btn-warning w-100 fw-bold">Save Changes</button>
-            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary w-100 mt-2">Cancel</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary w-100 mt-2">Cancel</a>
           </form>
           <hr>
           <!-- Route to dedicated delete confirmation page (same flow as artwork) -->

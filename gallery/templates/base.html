@@ -24,11 +24,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
-          {% if request.resolver_match.url_name == 'dashboard' or request.resolver_match.url_name == 'gallery' %}
           <li class="nav-item">
-            <a class="nav-link btn btn-light text-dark fw-bold px-3 mx-1" href="{% url 'index' %}"><i class="bi bi-house-door"></i> Home</a>
+            <a class="nav-link btn btn-warning text-dark fw-bold px-3 mx-1" href="{% url 'index' %}"><i class="bi bi-house-door"></i> Home</a>
           </li>
-          {% endif %}
           <li class="nav-item">
             <a class="nav-link btn btn-warning text-dark fw-bold px-3 mx-1" href="{% url 'dashboard' %}">🐝 Dashboard</a>
           </li>
