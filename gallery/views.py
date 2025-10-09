@@ -103,7 +103,7 @@ def add_artwork(request, child_id):
             artwork.child = child
             artwork.save()
             messages.success(request, f"Artwork '{artwork.title}' added for {child.name}!")
-            return redirect('dashboard')
+            return redirect('gallery', child_id=child.id)  # Redirect to gallery after adding artwork
     else:
         form = ArtworkForm()
     return render(request, 'add_artwork.html', {'form': form, 'child': child})

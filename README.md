@@ -19,7 +19,6 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 - PostgreSQL (production database)
 - SQLite (local development)
 - Heroku (cloud deployment)
-- WhiteNoise (static file serving)
 - Git (version control)
 - GitHub (repository hosting)
 
