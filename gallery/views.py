@@ -24,7 +24,7 @@ def index(request):
                 user.save()
                 login(request, user)
                 messages.success(request, f'Welcome to Art-Hive, {user.username}! 🐝')
-                # No redirect, just render index.html
+                return redirect('index')  # Redirect after registration
             else:
                 signup_error = signup_form.errors
         elif 'login' in request.POST:
@@ -38,7 +38,7 @@ def index(request):
                 if user is not None:
                     login(request, user)
                     messages.success(request, f'Welcome back, {user.username}! 🐝')
-                    # No redirect, just render index.html
+                    return redirect('index')  # Redirect after login
                 else:
                     login_error = 'Invalid username or password.'
             else:
