@@ -24,11 +24,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
-          {% if request.resolver_match.url_name == 'gallery' %}
           <li class="nav-item">
             <a class="nav-link btn btn-warning text-dark fw-bold px-3 mx-1" href="{% url 'dashboard' %}">🐝 Dashboard</a>
           </li>
-          {% endif %}
           {% if request.resolver_match.url_name == 'dashboard' %}
           <li class="nav-item">
             <a class="nav-link btn btn-warning text-dark fw-bold px-3 mx-1" href="{% url 'add_child' %}">+ Add Child</a>
