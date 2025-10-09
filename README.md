@@ -40,7 +40,27 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 - CRUD Operations
 
 ## Data Model
-- Model Descriptions & Relationships
+
+Art-hive uses a simple, well-structured data model to organise users, children, and their artwork:
+
+- **User** (Django built-in): Represents a parent account. Each user can create and manage multiple child profiles.
+
+- **Child**
+  - `name`: The child’s name
+  - `age`: (optional) The child’s age
+  - `parent`: Linked to the User who owns the profile
+  - **Relationship:** Each User can have many Children, but each Child belongs to only one User (parent account).
+  - Each Child profile is private to a single User and cannot be shared between accounts.
+
+- **Artwork**
+  - `title`: Title of the artwork (required)
+  - `description`: Description of the artwork (required)
+  - `image`: Uploaded image file (stored via Cloudinary)
+  - `created_at`: Date/time the artwork was added
+  - `child`: Linked to the Child profile
+  - **Relationship:** Each Child can have many Artworks
+
+**Diagram:**
 
 ## Accessibility & UX
 - Accessibility Features
