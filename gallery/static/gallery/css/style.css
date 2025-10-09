@@ -205,15 +205,16 @@ h2, h3 {
 }
 
 .hive-frame .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
   background: transparent;
   box-shadow: none;
   width: 92%;
   padding: 0.5rem 0;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .hive-frame h2 {
   color: #222;
@@ -222,7 +223,13 @@ h2, h3 {
   text-align: center;
 }
 .hive-frame p { margin-bottom: 0.35rem; text-align: center; }
-.hive-frame .btn { font-size: 0.95rem; }
+.hive-frame .btn {
+  font-size: 0.8rem;
+  padding: 0.18rem 0.45rem;
+  max-width: 80%;
+  white-space: normal;
+  word-break: break-word;
+}
 .hive-frame .btn:focus-visible { outline: 3px solid #ffd600; outline-offset: 2px; }
 /* New: small stat line for profile cards */
 .hive-stats { font-size: 0.9rem; color: #5c4a00; font-weight: 700; margin: 0.15rem 0 0; }
