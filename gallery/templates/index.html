@@ -6,7 +6,6 @@
     <h1 class="hero-title mb-2">A happy home for your child's art</h1>
     <p class="hero-subtitle mb-4">No more fridge avalanches. No more mystery piles. Every doodle gets a cozy spot in the hive.</p>
     {% if user.is_authenticated %}
-      <div class="alert alert-success mb-4">Welcome, {{ user.username }}! 🎉</div>
       <a href="{% url 'dashboard' %}" class="btn btn-warning fw-bold">Go to Dashboard</a>
     {% else %}
       <div class="d-flex flex-wrap justify-content-center gap-2">
