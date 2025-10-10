@@ -47,13 +47,33 @@ Follow these steps to set up Art-hive for local development:
    git clone https://github.com/nazhameed/arthive.git
    cd arthive
    ```
-2. **Environment Variables**
+2. ## Environment Variables
 
-To run Art-hive locally, you need to set up environment variables for sensitive information and third-party services.
+To run Art-hive locally or in production, you need to set up environment variables for sensitive information and third-party services. Create a `.env` file in the project root and add the following:
+
+```
+SECRET_KEY=your-secret-key-here
+DATABASE_URL=postgresql://username:password@host:port/dbname
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
+```
+
+Replace the placeholders with your actual secret key, database URL, and Cloudinary credentials. For development, you can use SQLite and a dummy secret key, but remember to switch to a real database and secure key for production.
 
    
 - Database Migration
 - Running the App Locally
+
+## Running the App Locally
+
+Once you have installed dependencies, set up environment variables, and run migrations, start the Django development server:
+
+```bash
+python manage.py runserver
+```
+
+Then open your browser and go to your local development server
 
 ## Deployment
 
@@ -231,16 +251,3 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 
 Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
 
-## Environment Variables
-
-To run Art-hive locally or in production, you need to set up environment variables for sensitive information and third-party services. Create a `.env` file in the project root and add the following:
-
-```
-SECRET_KEY=your-secret-key-here
-DATABASE_URL=postgresql://username:password@host:port/dbname
-CLOUDINARY_CLOUD_NAME=your-cloud-name
-CLOUDINARY_API_KEY=your-api-key
-CLOUDINARY_API_SECRET=your-api-secret
-```
-
-Replace the placeholders with your actual secret key, database URL, and Cloudinary credentials. For development, you can use SQLite and a dummy secret key, but remember to switch to a real database and secure key for production.
