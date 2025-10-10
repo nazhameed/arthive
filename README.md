@@ -83,9 +83,17 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
 
 ## Acknowledgements
 
+- Developed by [Your Name]
+- Powered by Django, Bootstrap, Cloudinary, and PostgreSQL
+- Icons by [Bootstrap Icons](https://icons.getbootstrap.com/)
+- Fonts by [Google Fonts](https://fonts.google.com/)
+- Hexagon CSS inspired by [CSS-Tricks](https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/)
+- Thanks to open-source contributors and the Stack Overflow community
+- AI assistance via GitHub Copilot
+
 ## Hexagon Gallery Design
 
-Art-hive features a unique “honeycomb” gallery layout, where each artwork is displayed inside a hexagonal cell—mimicking the look of a real beehive. This playful design is both visually engaging and technically challenging to implement.
+Art-hive features a unique “honeycomb” gallery layout, where each artwork is displayed inside a hexagonal cell mimicking the look of a real beehive. This playful design is both visually engaging and technically challenging to implement.
 
 ### How It Works
 
@@ -99,7 +107,7 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
   Rows are offset using CSS transforms, so the hexagons interlock just like a real hive. This required careful calculation of widths, heights, and margins to avoid gaps or overlap.
 
 - **Accessibility:**  
-  Each hexagon is keyboard-accessible and includes ARIA roles for screen readers, ensuring the gallery is usable by everyone.
+  Each hexagon is keyboard accessible and includes ARIA roles for screen readers, ensuring the gallery is usable by everyone.
 
 - **Responsive Design:**  
   The honeycomb grid automatically adjusts the number of columns and the size of each hexagon based on the device, so it looks great on mobile, tablet, and desktop.
@@ -115,4 +123,4 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 
 ### Reflection
 
-Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time-consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required extensive research, experimentation, and debugging—especially to handle image cropping, staggered rows, and different screen sizes. While challenging, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
+Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
