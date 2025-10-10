@@ -86,6 +86,7 @@ Check your terminal for the correct local development URL after running the serv
 ### Cloud Platform Used
 
 Art-hive is deployed on [Heroku](https://www.heroku.com/).
+
 ### Deployment Steps
 
 1. **Prepare the App for Production**
