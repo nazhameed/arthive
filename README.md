@@ -23,8 +23,30 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 - GitHub (repository hosting)
 
 ## Setup & Installation
-- Prerequisites
-- Local Setup
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed on your system:
+
+- **Python 3.8+** ([Download Python](https://www.python.org/downloads/))
+- **pip** (comes with Python, for installing dependencies)
+- **Git** ([Download Git](https://git-scm.com/downloads))
+- **Virtualenv** (recommended, install with `pip install virtualenv`)
+- **Cloudinary account** (for image hosting, [Sign up here](https://cloudinary.com/users/register/free))
+- **PostgreSQL** (for production, optional for local dev)
+- **Heroku CLI** (for deployment, [Install guide](https://devcenter.heroku.com/articles/heroku-cli))
+
+> _Note: For local development, SQLite is used by default. Cloudinary and PostgreSQL are required for production deployment._
+
+## Local Setup
+
+Follow these steps to set up Art-hive for local development:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/nazhameed/arthive.git
+   cd arthive
+   ```
 - Environment Variables
 - Database Migration
 - Running the App Locally
@@ -76,7 +98,7 @@ Art-hive is deployed on [Heroku](https://www.heroku.com/).
 - All secrets and credentials are managed via environment variables.
 - `ALLOWED_HOSTS` includes the Heroku app domain.
 - Database is configured via `DATABASE_URL`.
-- Media files are stored on Cloudinary.
+- Media files (artwork images) are uploaded and stored securely on Cloudinary. The app uses the `CLOUDINARY_URL` environment variable to connect to your Cloudinary account for all media storage and retrieval.
 - Static file collection is disabled (`DISABLE_COLLECTSTATIC=1`) unless configured otherwise.
 
 
