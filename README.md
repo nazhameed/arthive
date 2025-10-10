@@ -34,10 +34,38 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 - Deployment Steps
 - Production Settings (Security, DEBUG, etc.)
 
-## Usage
-- User Roles & Permissions
-- How to Register/Login
-- CRUD Operations
+## Using Art-Hive
+
+### User Roles & Permissions
+- **Parent (User):** Each registered user is a parent/carer who can create, view, edit, and delete their own child profiles and artworks.
+- **Privacy:** All galleries and child profiles are private to the logged in user. No other users can view or modify your data.
+- **Access Control:** You must be logged in to access the dashboard, add/edit children, or upload artwork. Unauthenticated users can only see the login and registration pages.
+
+### How to Register/Login
+1. **Register:**
+   - Click the "Sign Up" or "Register" link on the homepage or login page.
+   - Fill in your username, email, and password.
+   - After registering, you can log in with your credentials.
+2. **Login:**
+   - Click the "Login" link.
+   - Enter your username and password.
+   - Upon successful login, you are redirected to your dashboard.
+3. **Logout:**
+   - Click the "Logout" button in the navigation bar to securely end your session.
+
+### CRUD Operations
+- **Children:**
+  - **Create:** Add a new child profile from your dashboard.
+  - **Read:** View all your children and their galleries on the dashboard.
+  - **Update:** Edit a child's name or age from the dashboard.
+  - **Delete:** Remove a child profile (and all associated artworks) from the dashboard.
+- **Artworks:**
+  - **Create:** Add new artwork to a child's gallery by uploading an image, title, and description.
+  - **Read:** View all artworks for each child in a honeycomb gallery layout.
+  - **Update:** Edit the title, description, or image of an artwork.
+  - **Delete:** Remove an artwork from a child's gallery.
+
+> **Note:** All actions are protected. Users can only manage their own children and artworks. Forms include validation and error messages for a smooth user experience.
 
 ## Data Model
 
