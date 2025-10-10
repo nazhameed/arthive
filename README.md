@@ -61,11 +61,17 @@ CLOUDINARY_API_SECRET=your-api-secret
 
 Replace the placeholders with your actual secret key, database URL, and Cloudinary credentials. For development, you can use SQLite and a dummy secret key, but remember to switch to a real database and secure key for production.
 
-   
-- Database Migration
-- Running the App Locally
 
-## Running the App Locally
+3. ## Database Migration
+
+After setting up your environment variables and installing dependencies, apply the database migrations to set up the database schema:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+4. ## Running the App Locally
 
 Once you have installed dependencies, set up environment variables, and run migrations, start the Django development server:
 
@@ -73,7 +79,7 @@ Once you have installed dependencies, set up environment variables, and run migr
 python manage.py runserver
 ```
 
-Then open your browser and go to your local development server
+Check your terminal for the correct local development URL after running the server.
 
 ## Deployment
 
