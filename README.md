@@ -109,6 +109,10 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
 
 ## License
 
+This project is proprietary and is not licensed for public use, modification, or redistribution.
+
+All rights reserved © Naz Hameed 2025.
+
 ## Acknowledgements
 
 - Developed by [Your Name]
