@@ -30,9 +30,55 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 - Running the App Locally
 
 ## Deployment
-- Cloud Platform Used
-- Deployment Steps
-- Production Settings (Security, DEBUG, etc.)
+
+### Cloud Platform Used
+
+Art-hive is deployed on [Heroku](https://www.heroku.com/).
+### Deployment Steps
+
+1. **Prepare the App for Production**
+    - Ensure all dependencies are listed in `requirements.txt`.
+    - Set up `Procfile` for Heroku to run the Django app.
+    - Configure `settings.py` to use environment variables for sensitive data.
+
+2. **Set Up Heroku**
+    - Create a new Heroku app via the Heroku Dashboard or CLI.
+    - Add Heroku Postgres and Cloudinary add-ons (or configure external Cloudinary).
+
+3. **Configure Environment Variables**
+    - Set the following environment variables in Heroku:
+      - `SECRET_KEY`
+      - `DEBUG` (set to `False`)
+      - `DATABASE_URL` (provided by Heroku Postgres)
+      - `CLOUDINARY_URL` (from your Cloudinary account)
+      - Any other required secrets (e.g., email credentials)
+
+4. **Static Files**
+    - Set `DISABLE_COLLECTSTATIC=1` in Heroku config vars to skip static file collection (if using only Cloudinary for media).
+    - Alternatively, configure static files hosting if needed.
+
+5. **Deploy**
+    - Push your code to Heroku using Git:
+      ```
+      git push heroku main
+      ```
+    - Run database migrations:
+      ```
+      heroku run python manage.py migrate
+      ```
+
+6. **Check the App**
+    - Visit your Heroku app URL to verify deployment.
+
+### Production Settings
+
+- `DEBUG = False` for security.
+- All secrets and credentials are managed via environment variables.
+- `ALLOWED_HOSTS` includes the Heroku app domain.
+- Database is configured via `DATABASE_URL`.
+- Media files are stored on Cloudinary.
+- Static file collection is disabled (`DISABLE_COLLECTSTATIC=1`) unless configured otherwise.
+
 
 ## Using Art-Hive
 
