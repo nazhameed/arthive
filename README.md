@@ -271,6 +271,15 @@ All major design, coding, and testing decisions were made by me, with AI acting 
 
 ## Known Issues / Limitations
 
+- **HEIC Browser Support:** Some browsers do not natively support HEIC images. Art-hive uses Cloudinary’s automatic format conversion, but if Cloudinary fails to convert, HEIC images may not display in all browsers.
+- **No Public Sharing:** Galleries and artwork are private to each user; there is currently no option for public or shared galleries.
+- **No Automated Testing:** All testing was performed manually. Automated tests (unit, integration, accessibility) are planned for future versions.
+- **No Email Verification:** User registration does not include email verification or password reset functionality.
+- **Limited User Roles:** Only parent (user) accounts are supported; there are no admin or child logins.
+- **Performance on Large Galleries:** The honeycomb gallery is optimised for moderate numbers of artworks. Very large galleries may impact performance or layout.
+- **No Internationalisation:** The app is currently English-only and does not support multiple languages.
+
+
 ## Contributing
 
 This project is not open for public contributions. If you have feedback or spot an issue, please contact the author directly at naz.hameed@sky.com 
