@@ -366,7 +366,7 @@ All rights reserved © Naz Hameed 2025.
 
 ## Acknowledgements
 
-- Developed by [Your Name]
+- Developed by Naz Hameed
 - Powered by Django, Bootstrap, Cloudinary, and PostgreSQL
 - Icons by [Bootstrap Icons](https://icons.getbootstrap.com/)
 - Fonts by [Google Fonts](https://fonts.google.com/)
