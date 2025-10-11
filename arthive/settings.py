@@ -131,3 +131,11 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_TRUSTED_ORIGINS = ['https://arthive-3f3b6382fabb.herokuapp.com']
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
+
+# Content Security Policy
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com")
+CSP_STYLE_SRC = ("'self'", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com")
+CSP_IMG_SRC = ("'self'", "data:", "https://res.cloudinary.com")
+CSP_CONNECT_SRC = ("'self'", "https://api.cloudinary.com")  # if using direct uploads
+CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com")
