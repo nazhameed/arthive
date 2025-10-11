@@ -19,6 +19,61 @@ Art-hive is a family friendly web application for organising, preserving, and ce
 
 <img src="gallery/static/assets/dashboard.png" alt="child profile dashboard" width="400"/>  <img src="gallery/static/assets/hive-gallery.png" alt="Hexagon hive gallery" width="400"/>
 
+## User Experience Design
+
+Art-hive was designed with families in mind, focusing on simplicity, accessibility, and a playful visual identity. The user experience is shaped by the following principles:
+
+- **Simplicity:** The interface is clean and intuitive, making it easy for parents and children to navigate, upload, and manage artwork without technical barriers.
+- **Accessibility:** All features are keyboard navigable, include ARIA roles, and have been tested for screen reader compatibility. Colour contrast and font choices ensure readability for all users.
+- **Playful Theme:** The honeycomb gallery and bee inspired visuals create a fun, engaging environment that appeals to children and families.
+- **Mobile First:** The layout is fully responsive, ensuring a seamless experience on mobile, tablet, and desktop devices.
+- **Feedback & Validation:** Forms provide clear validation messages and feedback, helping users correct errors and complete actions confidently.
+- **Privacy by Default:** All galleries and profiles are private to the logged-in user, with clear messaging about data security and privacy.
+- **Guided Flows:** Registration, login, and CRUD operations are designed as step-by-step flows, minimising confusion and supporting new users.
+
+### Example User Stories
+
+- As a parent, I want to easily upload and organise my child’s artwork, so I can preserve their creations in one place.
+- As a user, I want the gallery to look fun and engaging, so my child enjoys viewing their artwork.
+- As a parent, I want to access the app on my phone or tablet, so I can upload photos of artwork directly from my device.
+- As a user, I want clear feedback if I make a mistake in a form, so I can fix it quickly.
+- As a parent, I want to know my child’s artwork is private and secure, so I feel confident using the app.
+- As a user with accessibility needs, I want to navigate the app with a keyboard and screen reader, so I can use all features independently.
+
+The overall goal is to make preserving and celebrating children’s artwork a joyful, stress-free experience for every family.
+
+## Hexagon Gallery Design
+
+Art-hive features a unique “honeycomb” gallery layout, where each artwork is displayed inside a hexagonal cell mimicking the look of a real beehive. This playful design is both visually engaging and technically challenging to implement.
+
+### How It Works
+
+- **CSS Grid & Custom Properties:**  
+  The gallery uses CSS Grid to arrange artwork cells in a responsive, staggered honeycomb pattern. Custom CSS variables control the size and spacing of each hexagon, adapting to different screen sizes.
+
+- **Hexagon Shape:**  
+  Each cell uses the `clip-path` property to create a perfect hexagon, allowing images and content to fit neatly inside. This avoids the need for SVGs or images for the shape itself.
+
+- **Staggered Rows:**  
+  Rows are offset using CSS transforms, so the hexagons interlock just like a real hive. This required careful calculation of widths, heights, and margins to avoid gaps or overlap.
+
+- **Accessibility:**  
+  Each hexagon is keyboard accessible and includes ARIA roles for screen readers, ensuring the gallery is usable by everyone.
+
+- **Responsive Design:**  
+  The honeycomb grid automatically adjusts the number of columns and the size of each hexagon based on the device, so it looks great on mobile, tablet, and desktop.
+
+### Technical Challenges
+
+- **Hexagon Math:**  
+  Laying out hexagons in a grid is more complex than squares or rectangles. It required custom CSS variables and media queries to keep the pattern seamless at all sizes.
+- **Image Cropping:**  
+  Ensuring artwork images fit inside the hexagon without distortion or important details being cut off.
+- **Performance:**  
+  The design avoids heavy JavaScript, relying on modern CSS for smooth, fast rendering.
+
+
+
 ## Tech Stack
 
 - Python 3
@@ -315,61 +370,7 @@ All rights reserved © Naz Hameed 2025.
 - Thanks to open-source contributors and the Stack Overflow community
 - AI assistance via GitHub Copilot
 
-## Hexagon Gallery Design
-
-Art-hive features a unique “honeycomb” gallery layout, where each artwork is displayed inside a hexagonal cell mimicking the look of a real beehive. This playful design is both visually engaging and technically challenging to implement.
-
-### How It Works
-
-- **CSS Grid & Custom Properties:**  
-  The gallery uses CSS Grid to arrange artwork cells in a responsive, staggered honeycomb pattern. Custom CSS variables control the size and spacing of each hexagon, adapting to different screen sizes.
-
-- **Hexagon Shape:**  
-  Each cell uses the `clip-path` property to create a perfect hexagon, allowing images and content to fit neatly inside. This avoids the need for SVGs or images for the shape itself.
-
-- **Staggered Rows:**  
-  Rows are offset using CSS transforms, so the hexagons interlock just like a real hive. This required careful calculation of widths, heights, and margins to avoid gaps or overlap.
-
-- **Accessibility:**  
-  Each hexagon is keyboard accessible and includes ARIA roles for screen readers, ensuring the gallery is usable by everyone.
-
-- **Responsive Design:**  
-  The honeycomb grid automatically adjusts the number of columns and the size of each hexagon based on the device, so it looks great on mobile, tablet, and desktop.
-
-### Technical Challenges
-
-- **Hexagon Math:**  
-  Laying out hexagons in a grid is more complex than squares or rectangles. It required custom CSS variables and media queries to keep the pattern seamless at all sizes.
-- **Image Cropping:**  
-  Ensuring artwork images fit inside the hexagon without distortion or important details being cut off.
-- **Performance:**  
-  The design avoids heavy JavaScript, relying on modern CSS for smooth, fast rendering.
-
 ### Reflection
 
 Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
-
-## User Experience Design
-
-Art-hive was designed with families in mind, focusing on simplicity, accessibility, and a playful visual identity. The user experience is shaped by the following principles:
-
-- **Simplicity:** The interface is clean and intuitive, making it easy for parents and children to navigate, upload, and manage artwork without technical barriers.
-- **Accessibility:** All features are keyboard navigable, include ARIA roles, and have been tested for screen reader compatibility. Colour contrast and font choices ensure readability for all users.
-- **Playful Theme:** The honeycomb gallery and bee-inspired visuals create a fun, engaging environment that appeals to children and families.
-- **Mobile First:** The layout is fully responsive, ensuring a seamless experience on mobile, tablet, and desktop devices.
-- **Feedback & Validation:** Forms provide clear validation messages and feedback, helping users correct errors and complete actions confidently.
-- **Privacy by Default:** All galleries and profiles are private to the logged-in user, with clear messaging about data security and privacy.
-- **Guided Flows:** Registration, login, and CRUD operations are designed as step-by-step flows, minimising confusion and supporting new users.
-
-### Example User Stories
-
-- As a parent, I want to easily upload and organise my child’s artwork, so I can preserve their creations in one place.
-- As a user, I want the gallery to look fun and engaging, so my child enjoys viewing their artwork.
-- As a parent, I want to access the app on my phone or tablet, so I can upload photos of artwork directly from my device.
-- As a user, I want clear feedback if I make a mistake in a form, so I can fix it quickly.
-- As a parent, I want to know my child’s artwork is private and secure, so I feel confident using the app.
-- As a user with accessibility needs, I want to navigate the app with a keyboard and screen reader, so I can use all features independently.
-
-The overall goal is to make preserving and celebrating children’s artwork a joyful, stress-free experience for every family.
-
 
