@@ -209,8 +209,10 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
 - Responsive Design
 
 ## Testing
-- How to Run Tests
-- Test Coverage
+
+<img src="gallery/static/assets/test-cases.png" alt="Manual testing table" width="400"/>
+
+    |
 
 ## AI Assistance Reflection
 - How AI Was Used for Code, Debugging, Optimization, and Testing
@@ -270,4 +272,3 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 ### Reflection
 
 Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
-
