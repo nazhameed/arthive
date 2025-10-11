@@ -204,9 +204,32 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
 
 <img src="gallery/static/assets/erd.png" alt="Entity relationship diagram" width="400"/>
 
-## Accessibility & UX
-- Accessibility Features
-- Responsive Design
+## Accessibility 
+
+Art-hive was tested with [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) to ensure high standards for performance, accessibility and best practices.
+
+### Lighthouse Best Practices: Troubleshooting & Improvement
+
+When first running a Lighthouse audit, Art-hive received a **Best Practices** score of 78. The main issues identified were:
+
+- Use of insecure image URLs (HTTP instead of HTTPS) for some resources.
+- Missing or misconfigured Content Security Policy (CSP) headers.
+- Minor accessibility or code warnings flagged by Lighthouse.
+
+#### Troubleshooting Steps
+
+- Used AI assistance (GitHub Copilot) to help diagnose, debug, and resolve the issues flagged by Lighthouse.
+- Updated all image and static asset URLs to use HTTPS.
+- Integrated and correctly configured the `django-csp` middleware to set a strict, modern CSP header.
+- Ensured all Cloudinary images are served securely and allowed by the CSP.
+- Reviewed and fixed any additional warnings flagged by Lighthouse.
+
+After these changes, a new Lighthouse audit showed a **Best Practices** score of **100**.
+
+<img src="gallery/static/assets/lighthouse.png" alt="Lighthouse report for Art-hive" width="400"/>
+
+This process helped ensure Art-hive follows web best practices for security, reliability, and user experience.
+
 
 ## Testing
 
@@ -282,3 +305,5 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 ### Reflection
 
 Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
+
+
