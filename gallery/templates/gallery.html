@@ -15,7 +15,12 @@
           <div class="honeycomb-media" aria-label="{{ artwork.title|default:'Artwork' }}">
             <!-- Top: image + click to expand -->
             <div class="honeycomb-top">
-              <img src="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' %}" alt="{{ artwork.title|default:'Artwork' }}" class="honeycomb-img" loading="lazy">
+              <img src="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' %}"
+                   alt="{{ artwork.title|default:'Artwork' }}"
+                   class="honeycomb-img"
+                   loading="lazy"
+                   width="400"
+                   height="400">
               <button type="button"
                       class="honeycomb-open open-artwork-image"
                       data-bs-toggle="modal"
