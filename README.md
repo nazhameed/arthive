@@ -6,7 +6,16 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 
 ## Features
 
-## Screenshots / Demo
+- **Child Profiles:** Organise artwork by creating separate profiles for each child.
+- **Honeycomb Gallery:** View artworks in a unique, responsive hexagonal grid inspired by a beehive.
+- **Artwork Upload & Management:** Upload images (HEIC, JPEG, PNG), add titles and descriptions, and edit or delete artworks.
+- **Secure Image Hosting:** All images are stored and served via Cloudinary for speed and security.
+- **Accessibility:** Keyboard navigable, ARIA roles, and tested for screen reader compatibility.
+- **Privacy:** All galleries and profiles are private to the logged-in user.
+- **Responsive Design:** Layout adapts seamlessly to mobile, tablet, and desktop screens.
+- **User Authentication:** Secure registration, login, and logout for parents.
+- **Dashboard:** Manage children and their galleries from a central dashboard.
+- **Edit & Delete:** Easily edit or remove child profiles and individual artworks.
 
 ## Tech Stack
 
