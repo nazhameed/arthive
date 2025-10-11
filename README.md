@@ -72,6 +72,10 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 - **Performance:**  
   The design avoids heavy JavaScript, relying on modern CSS for smooth, fast rendering.
 
+### Reflection
+
+Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
+
 
 
 ## Tech Stack
@@ -369,8 +373,4 @@ All rights reserved © Naz Hameed 2025.
 - Hexagon CSS inspired by [CSS-Tricks](https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/)
 - Thanks to open-source contributors and the Stack Overflow community
 - AI assistance via GitHub Copilot
-
-### Reflection
-
-Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
 
