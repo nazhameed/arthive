@@ -248,7 +248,15 @@ Art-hive was thoroughly tested manually to ensure a robust, user friendly, and a
 - Automated tests will be included in future versions to further improve reliability and maintainability.
 
 ## AI Assistance Reflection
-- How AI Was Used for Code, Debugging, Optimisation, and Testing
+
+As part of the AI Augmented Full Stack Development course, I used GitHub Copilot as an interactive assistant during development. Rather than generating large amounts of code automatically, I mainly used AI to guide me through specific problems step by step. I described issues or goals, and Copilot provided targeted suggestions, explanations, or code snippets in response to my instructions.
+
+AI was most helpful for:
+- Explaining error messages and configuration issues (e.g., CSP, static files)
+- Suggesting best practices for security and deployment
+- Providing code examples or troubleshooting tips when I asked for them
+
+All major design, coding, and testing decisions were made by me, with AI acting as a responsive support tool that I could consult as needed. This approach allowed me to stay in control of the project while benefiting from AI’s ability to clarify concepts and accelerate problem solving.
 
 ## Known Issues / Limitations
 
