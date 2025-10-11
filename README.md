@@ -138,6 +138,7 @@ Art-hive was developed using Agile principles, with all work tracked on a GitHub
 
 - **Project Board:**  
   All tasks, user stories, and bugs were managed on a GitHub Project board with columns for Todo, In Progress, and Done. This provided clear visibility and progress tracking throughout the project.
+  [GitHub Project board](https://github.com/users/nazhameed/projects/8)
 
 - **MoSCoW Prioritization:**  
   Features and tasks were categorized as Must have, Should have, Could have, or Won’t have for this release. This ensured that core functionality was delivered first, while allowing flexibility for enhancements.
