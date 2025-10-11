@@ -5,3 +5,5 @@ __pycache__/
 .env
 env.py
 .DS_Store
+
+staticfiles/

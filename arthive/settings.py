@@ -122,6 +122,7 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'SECURE': True,
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -132,10 +133,18 @@ CSRF_TRUSTED_ORIGINS = ['https://arthive-3f3b6382fabb.herokuapp.com']
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
 
-# Content Security Policy
-CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com")
-CSP_STYLE_SRC = ("'self'", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com")
-CSP_IMG_SRC = ("'self'", "data:", "https://res.cloudinary.com")
-CSP_CONNECT_SRC = ("'self'", "https://api.cloudinary.com")  # if using direct uploads
-CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com")
+
+CONTENT_SECURITY_POLICY = {
+    'DIRECTIVES': {
+        'default-src': ("'self'",),
+        'script-src': ("'self'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com"),
+        'style-src': ("'self'", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com"),
+        'img-src': [
+            "'self'",
+            "data:",
+            "https://res.cloudinary.com/dwk7vsn7d/",
+        ],
+        'connect-src': ("'self'", "https://api.cloudinary.com", "https://cdn.jsdelivr.net"),
+        'font-src': ("'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"),
+    }
+}

@@ -15,7 +15,7 @@
           <div class="honeycomb-media" aria-label="{{ artwork.title|default:'Artwork' }}">
             <!-- Top: image + click to expand -->
             <div class="honeycomb-top">
-              <img src="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' %}"
+              <img src="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' secure=True %}"
                    alt="{{ artwork.title|default:'Artwork' }}"
                    class="honeycomb-img"
                    loading="lazy"
@@ -25,7 +25,7 @@
                       class="honeycomb-open open-artwork-image"
                       data-bs-toggle="modal"
                       data-bs-target="#artworkImageModal"
-                      data-img="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' %}"
+                      data-img="{% cloudinary_url artwork.image fetch_format='auto' quality='auto' secure=True %}"
                       data-title="{{ artwork.title|default:'Artwork' }}"
                       data-desc="{{ artwork.description|default:'' }}"
                       data-date="{{ artwork.created_at|date:'M d, Y' }}"
