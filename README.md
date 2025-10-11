@@ -2,7 +2,7 @@
 
 ## Overview 
 
-Art-hive is a family friendly web application for organizing, preserving, and celebrating your child’s artwork. Instead of letting masterpieces pile up or get lost, Art-hive provides a digital “hive” where each child can have their own profile and gallery. Parents can easily upload, view, and manage their children’s creations in a secure, private, and visually engaging environment. The app is designed with accessibility, ease of use, and a playful bee/honey theme to make the experience fun for all ages.
+Art-hive is a family friendly web application for organising, preserving, and celebrating your child’s artwork. Instead of letting masterpieces pile up or get lost, Art-hive provides a digital “hive” where each child can have their own profile and gallery. Parents can easily upload, view, and manage their children’s creations in a secure, private, and visually engaging environment. The app is designed with accessibility, ease of use, and a playful bee/honey theme to make the experience fun for all ages.
 
 ## Features
 
@@ -60,7 +60,7 @@ Follow these steps to set up Art-hive for local development:
    ```
 2. ## Environment Variables
 
-To run Art-hive locally or in production, you need to set up environment variables for sensitive information and third-party services. Create a `.env` file in the project root and add the following:
+To run Art-hive locally or in production, you need to set up environment variables for sensitive information and third party services. Create a `.env` file in the project root and add the following:
 
 ```
 SECRET_KEY=your-secret-key-here
@@ -278,6 +278,22 @@ All major design, coding, and testing decisions were made by me, with AI acting 
 - **Limited User Roles:** Only parent (user) accounts are supported; there are no admin or child logins.
 - **Performance on Large Galleries:** The honeycomb gallery is optimised for moderate numbers of artworks. Very large galleries may impact performance or layout.
 - **No Internationalisation:** The app is currently English-only and does not support multiple languages.
+
+## Future Improvements
+
+- **Automated Testing:** Add unit, integration, and accessibility tests to improve reliability and maintainability.
+- **Email Verification & Password Reset:** Implement email verification during registration and password reset functionality for users.
+- **Public/Shared Galleries:** Allow users to optionally share galleries or artworks with others via public or private links.
+- **Public Artwork Carousel:** Enable parents to mark selected artworks as public, which will then be featured in a public carousel on the homepage.
+- **Admin Dashboard:** Add an admin interface for site management and moderation.
+- **Child/Family Accounts:** Support additional user roles, such as child logins or family sharing.
+- **Bulk Upload:** Enable uploading multiple artworks at once.
+- **Gallery Sorting & Filtering:** Allow users to sort and filter artworks by date, title, or tags.
+- **Internationalisation:** Add support for multiple languages.
+- **Dark Mode:** Provide a dark theme option for user comfort.
+- **Performance Optimisation:** Enhance gallery performance for users with large numbers of artworks.
+- **Leaderboard & Gamification:** Introduce a leaderboard to highlight top contributors (e.g., most uploads, most public artworks) and add gamified features such as badges, achievements, or streaks to encourage engagement and creativity.
+
 
 
 ## Contributing
