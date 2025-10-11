@@ -17,6 +17,8 @@ Art-hive is a family friendly web application for organizing, preserving, and ce
 - **Dashboard:** Manage children and their galleries from a central dashboard.
 - **Edit & Delete:** Easily edit or remove child profiles and individual artworks.
 
+<img src="gallery/static/assets/hivegallery.png" alt="Entity relationship diagram" width="400"/>  <img src="gallery/static/assets/hivegallery.png" alt="Entity relationship diagram" width="400"/>
+
 ## Tech Stack
 
 - Python 3
