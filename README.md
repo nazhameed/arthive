@@ -210,12 +210,22 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
 
 ## Testing
 
+Art-hive was thoroughly tested manually to ensure a robust, user friendly, and accessible experience.
+
+### Manual Testing
+- All major user stories and features were tested using a structured test case table (see below and image).
+- Tests were performed on multiple browsers (Chrome, Firefox, Safari) and devices (desktop, tablet, mobile).
+- Edge cases, form validation, and error handling were checked for all forms and user actions.
+- Accessibility was manually checked using keyboard navigation and screen reader tools.
+
 <img src="gallery/static/assets/test-cases.png" alt="Manual testing table" width="400"/>
 
-    |
+### Test Coverage
+- Manual testing covers all core functionality, user flows, and cross-device compatibility.
+- Automated tests will be included in future versions to further improve reliability and maintainability.
 
 ## AI Assistance Reflection
-- How AI Was Used for Code, Debugging, Optimization, and Testing
+- How AI Was Used for Code, Debugging, Optimisation, and Testing
 
 ## Known Issues / Limitations
 
