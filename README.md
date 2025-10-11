@@ -258,3 +258,18 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 
 Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
 
+## Agile Development Process
+
+Art-hive was developed using Agile principles, with all work tracked on a GitHub Project board. The MoSCoW method (Must have, Should have, Could have, Won’t have) was used to prioritize features and guide development.
+
+- **Project Board:**  
+  All tasks, user stories, and bugs were managed on a GitHub Project board with columns for Todo, In Progress, and Done. This provided clear visibility and progress tracking throughout the project.
+
+- **MoSCoW Prioritization:**  
+  Features and tasks were categorized as Must have, Should have, Could have, or Won’t have for this release. This ensured that core functionality was delivered first, while allowing flexibility for enhancements.
+
+![GitHub Project Board](gallery/static/assets/project-board.png)
+
+<img src="gallery/static/assets/project-board.png" alt="Github project board" width="400"/>
+
+
