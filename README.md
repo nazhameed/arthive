@@ -328,6 +328,8 @@ Art-hive’s HTML and CSS were validated using the official W3C validators to en
 
 Below is a screenshot showing successful validation:
 
+<img src="gallery/static/assets/html-validation.png" alt="Manual testing table" width="400"/>
+
 <img src="gallery/static/assets/css-validation.png" alt="Manual testing table" width="400"/>
 
 
