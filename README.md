@@ -326,12 +326,13 @@ Art-hive’s HTML and CSS were validated using the official W3C validators to en
 - **HTML Validation:** All main pages were checked using the [W3C Markup Validation Service](https://validator.w3.org/).
 - **CSS Validation:** Stylesheets were checked using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 
+Because Django template tags can cause false errors in online validators, I validated the rendered HTML by checking the browser’s page source to ensure full standards compliance.
+
 Below is a screenshot showing successful validation:
 
 <img src="gallery/static/assets/html-validation.png" alt="Manual testing table" width="400"/>
 
 <img src="gallery/static/assets/css-validation.png" alt="Manual testing table" width="400"/>
-
 
 
 ## AI Assistance Reflection
