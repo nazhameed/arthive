@@ -76,7 +76,9 @@ Art-hive features a unique “honeycomb” gallery layout, where each artwork is
 
 Designing and implementing the responsive hexagon (honeycomb) gallery was by far the hardest and most time consuming part of this project. Achieving a seamless, accessible, and fully responsive honeycomb layout with pure CSS required research, experimentation, and debugging especially to handle image cropping, staggered rows, and different screen sizes. While challenging and frustrating at times, it was also the most rewarding aspect, as it gives Art-hive its unique visual identity and playful user experience.
 
+## Live Demo
 
+Try Art-hive here: [https://arthive-3f3b6382fabb.herokuapp.com/](https://arthive-3f3b6382fabb.herokuapp.com/)
 
 ## Tech Stack
 
