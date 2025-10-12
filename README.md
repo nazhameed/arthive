@@ -276,6 +276,16 @@ Art-hive uses a simple, well-structured data model to organise users, children, 
 
 <img src="gallery/static/assets/erd.png" alt="Entity relationship diagram" width="400"/>
 
+## Static and Media File Handling
+
+Art-hive uses Django’s static files framework to manage CSS, JavaScript, and image assets. All static files are referenced in templates using the `{% static %}` template tag. During development, static files are served automatically by Django. For production, static files are collected using the `collectstatic` command. The `.gitignore` file is configured to exclude collected static files from version control.
+
+Media files (user-uploaded artwork) are stored and served securely via Cloudinary. All media URLs are generated to use HTTPS and are compatible with the site’s Content Security Policy (CSP).
+
+## Content Security Policy (CSP)
+
+To enhance security, Art-hive enforces a strict Content Security Policy using the `django-csp` middleware. The CSP restricts which sources can serve scripts, styles, images, and other resources, helping to prevent cross-site scripting (XSS) and related attacks. The policy is configured to allow only trusted sources, including Cloudinary for media and Bootstrap/CDN providers for static assets. All Cloudinary images are served securely over HTTPS and are explicitly permitted by the CSP configuration.
+
 ## Accessibility 
 
 Art-hive was tested with [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) to ensure high standards for performance, accessibility and best practices.
