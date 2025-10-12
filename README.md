@@ -380,7 +380,7 @@ All major design, coding, and testing decisions were made by me, with AI acting 
 - **Dark Mode:** Provide a dark theme option for user comfort.
 - **Performance Optimisation:** Enhance gallery performance for users with large numbers of artworks.
 - **Leaderboard & Gamification:** Introduce a leaderboard to highlight top contributors (e.g., most uploads, most public artworks) and add gamified features such as badges, achievements, or streaks to encourage engagement and creativity.
-- **CSS Refactoring:** Modularize and clean up the main CSS file for better maintainability as the project grows.
+- **CSS Refactoring:** Modularise and clean up the main CSS file for better maintainability as the project grows.
 
 
 ## Contributing
