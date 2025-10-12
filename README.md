@@ -319,6 +319,19 @@ Art-hive was thoroughly tested manually to ensure a robust, user friendly, and a
 - Manual testing covers all core functionality, user flows, and cross-device compatibility.
 - Automated tests will be included in future versions to further improve reliability and maintainability.
 
+### Validation
+
+Art-hive’s HTML and CSS were validated using the official W3C validators to ensure standards compliance and cross-browser compatibility.
+
+- **HTML Validation:** All main pages were checked using the [W3C Markup Validation Service](https://validator.w3.org/).
+- **CSS Validation:** Stylesheets were checked using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+Below is a screenshot showing successful validation:
+
+<img src="gallery/static/assets/css-validation.png" alt="Manual testing table" width="400"/>
+
+
+
 ## AI Assistance Reflection
 
 As part of the AI Augmented Full Stack Development course, I used GitHub Copilot as an interactive assistant during development. Rather than generating large amounts of code automatically, I mainly used AI to guide me through specific problems step by step. I described issues or goals, and Copilot provided targeted suggestions, explanations, or code snippets in response to my instructions.
