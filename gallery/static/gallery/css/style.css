@@ -475,7 +475,88 @@ h2, h3 {
   color: #000 !important;
 }
 
-.hero img, .hero-image img, img {
-  width: 100% !important;
-  max-width: none !important;
+.hero {
+  position: relative;
+  background-image: url('/static/assets/hive-gallery.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(34,34,34,0.1);
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fffbe6;
+  font-family: 'Fredoka One', 'Quicksand', sans-serif;
+  padding: clamp(1rem, 4vw, 3rem);
+  opacity: 0;
+  transform: scale(0.98);
+  animation: hero-fadein 0.9s cubic-bezier(.33,1.02,.47,.98) 0.1s forwards;
+}
+
+.hero-title, .hero-content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle, .hero-content p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 1.5rem;
+  color: #fffbe6;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+
+@keyframes hero-fadein {
+  from { opacity: 0; transform: scale(0.98);}
+  to   { opacity: 1; transform: scale(1);}
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 220px;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+  }
+  .hero-content {
+    padding: 1rem 0.5rem;
+  }
+  .hero-title, .hero-content h1 {
+    font-size: 1.25rem;
+  }
+  .hero-subtitle, .hero-content p {
+    font-size: 0.98rem;
+  }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+  background: url('data:image/svg+xml;utf8,<svg width="80" height="92" viewBox="0 0 80 92" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="40,6 75,25 75,67 40,86 5,67 5,25" stroke="%23ffe066" stroke-width="2" fill="none"/><polygon points="40,46 55,54 55,70 40,78 25,70 25,54" stroke="%23ffd600" stroke-width="1.5" fill="none"/></svg>');
+  background-size: 80px 92px;
+  background-repeat: repeat;
+  animation: honeycomb-move 18s linear infinite;
+  pointer-events: none;
+}
+@keyframes honeycomb-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 92px; }
 }
