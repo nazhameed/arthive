@@ -474,3 +474,8 @@ h2, h3 {
 .add-child-link:focus {
   color: #000 !important;
 }
+
+.hero img, .hero-image img, img {
+  width: 100% !important;
+  max-width: none !important;
+}

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="container container-wide mt-5" data-active-form="{{ active_form|default:'' }}">
   <!-- Hero -->
   <section class="hero card-honey shadow-sm p-4 p-md-5 mb-4 text-center">
     <div class="hero-image" style="text-align:center; margin-bottom:2rem;">
+    <img src="{% static 'assets/hive-gallery.png' %}" alt="Honeycomb gallery" style="max-width:120px !important; width:100% !important; height:auto !important; display:block; margin:0 auto 1.5rem auto !important;">
     <h1 class="hero-title mb-2">A happy home for your child's art</h1>
     <p class="hero-subtitle mb-4">No more fridge avalanches. No more mystery piles. Every doodle gets a cozy spot in the hive.</p>
     {% if user.is_authenticated %}
