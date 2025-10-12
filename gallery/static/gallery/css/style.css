@@ -349,7 +349,7 @@ h2, h3 {
 .honeycomb-title {
   margin: 0; min-width: 0;
   font-size: 1.08rem; font-weight: 800; line-height: 1.15;
-  display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
 }
 .honeycomb-date { display: block; white-space: nowrap; font-size: 0.85rem; font-weight: 700; color: #2e2300; }
 
