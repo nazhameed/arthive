@@ -354,7 +354,9 @@ Art-hive’s HTML and CSS were validated using the official W3C validators to en
 
 Because Django template tags can cause false errors in online validators, I validated the rendered HTML by checking the browser’s page source to ensure full standards compliance.
 
-Screenshots showing successful html and CSS validation:
+Screenshots showing successful Pep8, html and CSS validation:
+
+<img src="gallery/static/assets/pep8-validation.png" alt="Manual testing table" width="400"/>
 
 <img src="gallery/static/assets/html-validation.png" alt="Manual testing table" width="400"/>
 
