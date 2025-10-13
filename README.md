@@ -218,6 +218,12 @@ Art-hive was developed using Agile principles, with all work tracked on a GitHub
 
 <img src="gallery/static/assets/project-board.png" alt="Github project board" width="400"/>
 
+## Wireframe
+  Below is the wireframe used during the design and planning phase of Art-hive. This wireframe illustrates the layout of the main gallery/view of the site
+
+<img src="gallery/static/assets/wireframe.png" alt="Wireframe" width="400"/>
+
+
 ## Using Art-Hive
 
 ### User Roles & Permissions
