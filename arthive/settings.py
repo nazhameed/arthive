@@ -116,6 +116,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/dashboard/'  # Redirect after login
+LOGIN_URL = '/login/'  # Redirect unauthenticated users here
 
 # Cloudinary configuration (reads from env vars)
 CLOUDINARY_STORAGE = {
