@@ -16,7 +16,7 @@ except ImportError:
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Security
+# Security - DEBUG is set to false in production via Heroku config vars
 SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-change-me')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['arthive-3f3b6382fabb.herokuapp.com', 'localhost', '127.0.0.1']
