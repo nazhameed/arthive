@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Child
+from .models import Child, Artwork
+
 
 class ChildModelTest(TestCase):
     def setUp(self):
@@ -9,3 +10,7 @@ class ChildModelTest(TestCase):
 
     def test_child_str(self):
         self.assertEqual(str(self.child), 'Alice')
+
+    def test_child_parent(self):
+        self.assertEqual(self.child.parent.username, 'testuser')
+
