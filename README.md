@@ -31,7 +31,7 @@ Art-hive was designed with families in mind, focusing on simplicity, accessibili
 - **Privacy by Default:** All galleries and profiles are private to the logged-in user, with clear messaging about data security and privacy.
 - **Guided Flows:** Registration, login, and CRUD operations are designed as step-by-step flows, minimising confusion and supporting new users.
 
-### Example User Stories
+### User Stories
 
 - As a parent, I want to easily upload and organise my child’s artwork, so I can preserve their creations in one place.
 - As a user, I want the gallery to look fun and engaging, so my child enjoys viewing their artwork.
