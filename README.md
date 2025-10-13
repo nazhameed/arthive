@@ -331,6 +331,16 @@ Art-hive was thoroughly tested manually to ensure a robust, user friendly, and a
 
 <img src="gallery/static/assets/test-cases.png" alt="Manual testing table" width="400"/>
 
+### Automated Testing
+
+## Running Tests
+
+To run the automated tests for the gallery app, use:
+
+```bash
+python manage.py test gallery
+```
+
 ### Test Coverage
 - Manual testing covers all core functionality, user flows, and cross-device compatibility.
 - Automated tests will be included in future versions to further improve reliability and maintainability.
